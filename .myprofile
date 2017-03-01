@@ -65,7 +65,7 @@ export KEYTIMEOUT=1
 
 # Add RVM to PATH for scripting
 export PATH="$HOME/.rvm/bin:$PATH"
-export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$HOME/code/git-friendly:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH
 export PATH=$PATH:/Applications/FirefoxDeveloperEdition.app/Contents/MacOS:$HOME/mybin
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
