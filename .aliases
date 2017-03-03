@@ -151,4 +151,5 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias reload="exec $SHELL -l"
 
 alias jkysrv="bundle exec jekyll serve"
+alias wikisrv="http-server ~/Dropbox/vimwiki/WorkWiki_html"
 
