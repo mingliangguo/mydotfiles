@@ -289,16 +289,16 @@ set hlsearch
 
 set clipboard+=unnamed
 " define the copy/paste judged by clipboard
-if &clipboard ==# "unnamed"
-    " fix the visual paste bug in vim
-    " vnoremap <silent>p :call g:()<CR>
-else
-    " general copy/paste.
-    " NOTE: y,p,P could be mapped by other key-mapping
-    map <unique> <leader>y "+y
-    map <unique> <leader>p "*p
-    " map <unique> <leader>P "*P
-endif
+" if &clipboard ==# "unnamed"
+"     " fix the visual paste bug in vim
+"     " vnoremap <silent>p :call g:()<CR>
+" else
+"     " general copy/paste.
+"     " NOTE: y,p,P could be mapped by other key-mapping
+"     map <unique> <leader>y "+y
+"     map <unique> <leader>p "*p
+"     " map <unique> <leader>P "*P
+" endif
 
 " map keys to switch between splitted windows
 nnoremap <unique> <S-Up> <C-W><Up>
@@ -453,7 +453,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 Plug 'AutoClose'
 Plug 'matchit.zip'
 Plug 'Tabular'
-Plug 'vimwiki'
+Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
 function! BuildTern(info)
   if a:info.status == 'installed' || a:info.force
@@ -632,18 +632,26 @@ au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project wit
 " ------------------------------------------------------------------ 
 " Desc: VimWiki 
 " ------------------------------------------------------------------ 
-let g:vimwiki_list = [ { 'path': "~/Dropbox/vimwiki/LifeWiki",
-      \ 'template_path': '~/Dropbox/vimwiki/templates',
-      \ 'template_default': 'def_template',
-      \ 'template_ext': '.html', 'auto_export': 1}, 
-      \ {'path': "~/Dropbox/vimwiki/TechWiki",
-      \ 'template_path': '~/Dropbox/vimwiki/templates/',
-      \ 'template_default': 'def_template',
-      \ 'template_ext': '.html', 'auto_export': 1},
-      \ {'path': "~/Dropbox/vimwiki/WorkWiki",
-      \ 'template_path': '~/Dropbox/vimwiki/templates/',
-      \ 'template_default': 'def_template',
-      \ 'template_ext': '.html', 'auto_export': 1}]
+let g:vimwiki_list = [ 
+      \ { 
+      \     'path': "~/Dropbox/vimwiki/LifeWiki",
+      \     'template_path': '~/Dropbox/vimwiki/templates',
+      \     'template_default': 'def_template',
+      \     'template_ext': '.html', 'auto_export': 1
+      \ }, 
+      \ {
+      \     'path': "~/Dropbox/vimwiki/TechWiki",
+      \     'template_path': '~/Dropbox/vimwiki/templates/',
+      \     'template_default': 'def_template',
+      \     'template_ext': '.html', 'auto_export': 1
+      \ },
+      \ {
+      \     'path': "~/Dropbox/vimwiki/WorkWiki",
+      \     'template_path': '~/Dropbox/vimwiki/templates/',
+      \     'template_default': 'def_template',
+      \     'template_ext': '.html', 'auto_export': 1
+      \ }
+      \ ]
 
 " \ 'nested_syntaxes' : {'python': 'python', 'c++': 'cpp'},
 " create vimwiki files
