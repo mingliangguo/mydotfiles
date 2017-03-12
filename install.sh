@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# install powerline fonts
+git clone git@github.com:powerline/fonts.git ~/.fonts
+. ~/.fonts/install.sh
+
+# install powerline
+pip install powerline-status
+
+# install tmux-powerline
+mkdir ~/.tmux
+git clone https://github.com/erikw/tmux-powerline.git ~/.tmux/tmux-powerline
+
+# copy dot files
+echo "--- begin to copy dot files"
 cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;

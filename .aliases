@@ -153,3 +153,15 @@ alias reload="exec $SHELL -l"
 alias jkysrv="bundle exec jekyll serve"
 alias wikisrv="http-server ~/Dropbox/vimwiki/WorkWiki_html"
 
+# dot generate images to png, e.g. doto a.png a.dot
+alias doto="dot -Gdpi=500  -Tpng -o "
+
+# run all gradle task
+alias gradleall="gradle clean build test integrationTest"
+
+# run gradle bootRun
+alias gradlerun="gradle bootRun"
+
+# start the ssh agent, to avoid errors like - Could not open a connection to your authentication agent
+# when try to call ssh-add -k ~/.ssh/id_rsa
+alias sshagent="eval `ssh-agent -s`"

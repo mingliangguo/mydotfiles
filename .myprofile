@@ -80,3 +80,5 @@ fpath=($HOME/.zsh/gradle-completion $fpath)
 
 export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.1
 export PATH=$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$PATH
+
+source ~/.aliases
