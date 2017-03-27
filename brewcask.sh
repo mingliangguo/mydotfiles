@@ -7,6 +7,13 @@ brew install vim --with-override-system-vi
 brew install macvim --with-override-system-vim
 sudo brew linkapps macvim
 
+# for [jump](https://github.com/gsamokovarov/jump)
+brew install jump 
+brew install jq 
+brew install jid 
+brew install http-prompt 
+brew install httpie
+
 brew cask install alfred bettertouchtool firefox geektool google-chrome instacast iterm2 keyremap4macbook nv-alt skype rdio steam sublime-text textexpander 
 brew cask install limechat
 brew cask install macdown

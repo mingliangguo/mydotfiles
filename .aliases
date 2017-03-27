@@ -15,7 +15,6 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
 alias h="history"
-alias j="jobs"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -150,7 +149,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-alias jkysrv="bundle exec jekyll serve"
+alias jkysvr="bundle exec jekyll serve"
 alias wikisrv="http-server ~/Dropbox/vimwiki/WorkWiki_html"
 
 # dot generate images to png, e.g. doto a.png a.dot

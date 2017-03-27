@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-
+# integrate with [jump](https://github.com/gsamokovarov/jump)
+eval "$(jump shell)"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -11,8 +12,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='mvim'
 fi
-
-
 
 # My own alias
 alias setJdk6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
@@ -25,9 +24,6 @@ alias setGradle33='export GRADLE_HOME=~/tools/gradle-3.3 && export PATH=$GRADLE_
 
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup && brew cask cleanup'
-
-# jekyll server
-alias jkysvr='bundle exec jekyll serve'
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$JAVA_HOME/bin:$PATH
