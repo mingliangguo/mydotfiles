@@ -620,6 +620,7 @@ endif " has("autocmd")
 au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
 au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
 au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
+au BufNewFile,BufRead *.sql,*.cql set syntax=sql " for sql syntax file.
 " au BufNewFile,BufRead *.inc,*.test set filetype=php
 au BufNewFile,BufRead *.{php,inc,test,module,install,view} set filetype=php
 au BufNewFile,BufRead *.{ts} set filetype=typescript
