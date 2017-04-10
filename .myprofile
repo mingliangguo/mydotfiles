@@ -13,6 +13,8 @@ else
   export EDITOR='mvim'
 fi
 
+export VISUAL='vim'
+
 # My own alias
 alias setJdk6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
 alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
@@ -78,3 +80,4 @@ export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.1
 export PATH=$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$PATH
 
 source ~/.aliases
+source ~/mybin/toscana/tos_env.sh
