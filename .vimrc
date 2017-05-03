@@ -24,6 +24,13 @@ set backspace=indent,eol,start
 " Show “invisible” characters
 set list
 
+" enable spell check in English
+set spelllang=en_us
+set complete+=k	
+autocmd FileType mail setlocal spell spelllang=en_us
+autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
+" set spell or set nospell
 
 " highlight the current line
 set cursorline
@@ -426,6 +433,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'moll/vim-node'
 Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'jparise/vim-graphql'
 
 " Plug 'morhetz/gruvbox'
 "
