@@ -420,11 +420,14 @@ nmap <leader>s :,s///c
 " nmap <leader>p :set paste<CR>
 " nmap <leader>pp :set nopaste<CR>
 
-"文件类型切换
+" shortcuts for switch file types
 nmap <leader>fj :set ft=javascript<CR>
 nmap <leader>fc :set ft=css<CR>
 nmap <leader>fx :set ft=xml<CR>
 nmap <leader>fm :set ft=mako<CR>
+
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
 
 " Plug section
 call plug#begin('~/.vim/plugged')
@@ -435,6 +438,39 @@ Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'jparise/vim-graphql'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
+" FZF: ----------------------------------------------------------------{{{
+
+let g:fzf_launcher = "/Users/gary/fzf_launch.sh"
+let g:fzf_layout = {'down': '~50%'}
+let g:fzf_files_options =
+  \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
+nmap <leader>cp :Files<cr>
+nmap <leader>bt  :BTags<cr>
+nmap <leader>mru  :FZFMru<cr>
+
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' }
+
+command! FZFMru call fzf#run({
+      \'source': filter(copy(v:oldfiles), 'v:val !~ "NERD_tree"'),
+      \'sink' : 'e ',
+      \'options' : '-m',
+      \})
+
+command! Plugs call fzf#run({
+      \ 'source':  map(sort(keys(g:plugs)), 'g:plug_home."/".v:val'),
+      \ 'options': '--delimiter / --nth -1',
+      \ 'sink':    'Explore'})
+
+" end FZF -------------------------------------------------------------}}}
+
 
 " Plug 'morhetz/gruvbox'
 "
@@ -458,6 +494,7 @@ Plug 'ctrlp.vim'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
+nmap <leader>cmu :CtrlPMRU<cr>
 
 Plug 'AutoClose'
 Plug 'matchit.zip'

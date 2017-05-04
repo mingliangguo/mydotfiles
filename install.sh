@@ -11,6 +11,9 @@ pip install powerline-status
 mkdir ~/.tmux
 git clone https://github.com/erikw/tmux-powerline.git ~/.tmux/tmux-powerline
 
+# install zsh-interactive-shell
+git clone git@github.com:changyuheng/zsh-interactive-cd.git ~/.zsh
+
 # copy dot files
 echo "--- begin to copy dot files"
 cd "$(dirname "${BASH_SOURCE}")";

@@ -124,3 +124,5 @@ source $ZSH/oh-my-zsh.sh
 source ~/.myprofile
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
