@@ -12,6 +12,7 @@
     # checkout
     co = checkout
     cob = checkout -b
+    diffy = difftool -y -x "colordiff -ydW" HEAD^ HEAD
 
     # list branches sorted by last modified
     b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
@@ -148,6 +149,7 @@
 
 	# Detect copies as well as renames
 	renames = copies
+	tool = bc3
 
 [diff "bin"]
 
@@ -199,6 +201,13 @@
 	name = Gary Guo
 	# email = mingliangguo@gmail.com
 	email = gary.guo@ibm.com
+
+[difftool]
+  prompt = false
+
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
