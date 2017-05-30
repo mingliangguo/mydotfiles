@@ -1,9 +1,7 @@
-# Path to your oh-my-zsh installation.
-
-
 # set term color 
 export TERM="xterm-256color"
 
+# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -97,7 +95,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode colored-man colorize github vagrant brew mvn Forklift gradle httpie node npm pip python ruby rvm screen tmux osx zsh-syntax-highlighting)
+plugins=(git vi-mode colored-man colorize github vagrant brew mvn gradle Forklift httpie node npm pip python ruby rvm screen tmux osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,4 +125,15 @@ source ~/.myprofile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval $(thefuck --alias)
+
+
+# enable gradle auto-completion.
+# zstyle ':completion:*' use-cache on
+#
+# # Default is `"/(build|integTest|out)/"`
+# export GRADLE_COMPLETION_EXCLUDE_PATTERN="/(build|integTest|samples|smokeTest|testFixtures|templates|out|features)/"
+# # Essentially turn off checking for changed scripts
+# export GRADLE_COMPLETION_EXCLUDE_PATTERN="gradle"
+
+# fpath=(/Users/gary/.zsh/gradle-completion $fpath)
 

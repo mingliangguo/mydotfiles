@@ -21,11 +21,18 @@ sudo brew linkapps macvim
 
 # for [jump](https://github.com/gsamokovarov/jump)
 brew install jump 
+
+# CLI utility for better json display and manipulation
 brew install jq 
 brew install jid 
+
+# better curl replacement
 brew install http-prompt 
 brew install httpie
+# For better git diff display
 brew install icdiff
+# For quick code search => https://github.com/ggreer/the_silver_searcher
+brew install the_silver_searcher
 
 brew cask install alfred bettertouchtool firefox geektool google-chrome instacast iterm2 keyremap4macbook nv-alt skype rdio steam sublime-text textexpander 
 brew cask install limechat

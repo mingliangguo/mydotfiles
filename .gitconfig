@@ -145,17 +145,6 @@
 	# https://help.github.com/articles/signing-commits-using-gpg/
 	gpgsign = false
 
-[diff]
-
-	# Detect copies as well as renames
-	renames = copies
-	tool = bc3
-
-[diff "bin"]
-
-	# Use `hexdump` to diff binary files
-	textconv = hexdump -v -C
-
 [help]
 
 	# Automatically correct and execute mistyped commands
@@ -202,6 +191,22 @@
 	# email = mingliangguo@gmail.com
 	email = gary.guo@ibm.com
 
+[alias]
+  showtool = "!f() { git difftool $1^ $1; }; f"
+  added = difftool --cached
+
+[diff]
+
+	# Detect copies as well as renames
+	renames = copies
+	tool = bc3
+
+[diff "bin"]
+
+	# Use `hexdump` to diff binary files
+	textconv = hexdump -v -C
+
+
 [difftool]
   prompt = false
 
@@ -210,9 +215,11 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
 [mergetool "sourcetree"]
 	cmd = /Users/gary/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [mergetool]
 	bc3 = trustExitCode
+[pager]
+  difftool = true
+
