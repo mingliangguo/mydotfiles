@@ -11,6 +11,13 @@
 "/////////////////////////////////////////////////////////////////////////////
 "
 "===================================================
+" 
+" Install VimPlug if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
 " change the mapleader from \ to ,
 let mapleader = ','
 set nocompatible " Use Vim settings, rather then Vi settings (much better!). This must be first, because it changes other options as a side effect.
@@ -119,11 +126,15 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont=Inconsolata-g\ for\ Powerline:h15
+    set guifont=Inconsolata-g\ for\ Powerline:h14
     " set guifont=Roboto\ Mono\ for\ Powerline:h15
     " set guifont=Tinos\ for\ Powerline:h17
-    " set guifont=Hack:h15
+    " set gfn=Source\ Code\ Pro\ Light\ For\ Powerline:h14 
+    " set gfn=Monaco:h14
+    " set guifont=Hack:h12
 endif
+
+colorscheme badwolf
 
 " Set some junk
 set autoindent " Copy indent from last line when starting new line.
@@ -588,6 +599,8 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.$','\~$']
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos=1
+" Let nerdtree sync with opened buffer
+map <leader>r :NERDTreeFind<cr>
 
 " Navigation
 Plug 'http://github.com/gmarik/vim-visual-star-search.git'
@@ -663,25 +676,6 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 "/////////////////////////////////////////////////////////////////////////////
 " Auto Command
 "/////////////////////////////////////////////////////////////////////////////
-
-"//////////////////////////////////////////////////////////////
-"This has to be run after bundle command
-" color scheme define
-if has("gui_running")
-    " silent exec "colorscheme ex"
-    silent exec "colorscheme badwolf"
-   " silent exec "colorscheme wombat"
-   " silent exec "colorscheme Mustang"
-    " silent exec "colorscheme solarized"
-    " silent exec "colorscheme zenburn"
-"    silent exec "colorscheme railscasts"
-"    silent exec "colorscheme ex_lightgray"
-else " if we are in terminal mode
-    " NOTE: you cannot use if has('mac') to detect platform in terminal mode.
-    silent exec "colorscheme badwolf"
-    " silent exec "colorscheme darkblue"
-endif
-
 
 " ------------------------------------------------------------------ 
 " Desc: Only do this part when compiled with support for autocommands.
