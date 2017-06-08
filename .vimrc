@@ -134,14 +134,14 @@ if has("gui_running")
     " set guifont=Hack:h12
 endif
 
-colorscheme badwolf
+" colorscheme badwolf
 
 " Set some junk
 set autoindent " Copy indent from last line when starting new line.
 set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set encoding=utf-8 nobomb " BOM often causes trouble
-set foldcolumn=4 " Column to show folds
+set foldcolumn=0 " Column to show folds
 set foldenable
 set foldlevel=2
 " set foldlevelstart=2 " Sets `foldlevel` when editing a new buffer
@@ -250,15 +250,6 @@ if &term == "xterm-ipad"
   inoremap <Tab> <Esc>`^
   inoremap <Leader><Tab> <Tab>
 endif
-
-" Remap keys for auto-completion, disable arrow keys
-" I still need these cuz im nub. so nub.
-" inoremap <expr>  <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-" inoremap <expr>  <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-" inoremap <expr>  <Down>     pumvisible() ? "\<C-n>" : "\<NOP>"
-" inoremap <expr>  <Up>       pumvisible() ? "\<C-p>" : "\<NOP>"
-" inoremap <Left>  <NOP>
-" inoremap <Right> <NOP>
 
 " Indent/unident block (,]) (,[)
 nnoremap <leader>] >i{<CR>
@@ -486,8 +477,8 @@ command! Plugs call fzf#run({
 " end FZF -------------------------------------------------------------}}}
 
 
-" Plug 'morhetz/gruvbox'
-"
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 
 " <C-w>f to open the file under the cursor in a new vertical split
 autocmd User Node
@@ -508,7 +499,7 @@ Plug 'ctrlp.vim'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
-nmap <leader>cmu :CtrlPMRU<cr>
+nmap <leader>mu :CtrlPMRU<cr>
 
 Plug 'AutoClose'
 Plug 'matchit.zip'
@@ -659,6 +650,10 @@ endif
 " Add plugins to &runtimepath
 call plug#end()
 
+colorscheme gruvbox
+" colorscheme base16-default-dark
+set background=dark
+
 " Put the following at the end of plug
 filetype on
 filetype plugin indent on
@@ -726,19 +721,22 @@ let g:vimwiki_list = [
       \     'path': "~/Dropbox/vimwiki/LifeWiki",
       \     'template_path': '~/Dropbox/vimwiki/templates',
       \     'template_default': 'def_template',
-      \     'template_ext': '.html', 'auto_export': 1
+      \     'syntax': 'markdown', 'ext': '.md',
+      \     'template_ext': '.html', 'auto_export': 0
       \ }, 
       \ {
       \     'path': "~/Dropbox/vimwiki/TechWiki",
       \     'template_path': '~/Dropbox/vimwiki/templates/',
       \     'template_default': 'def_template',
-      \     'template_ext': '.html', 'auto_export': 1
+      \     'syntax': 'markdown', 'ext': '.md',
+      \     'template_ext': '.html', 'auto_export': 0
       \ },
       \ {
       \     'path': "~/Dropbox/vimwiki/WorkWiki",
       \     'template_path': '~/Dropbox/vimwiki/templates/',
       \     'template_default': 'def_template',
-      \     'template_ext': '.html', 'auto_export': 1
+      \     'syntax': 'markdown', 'ext': '.md',
+      \     'template_ext': '.html', 'auto_export': 0
       \ }
       \ ]
 

@@ -1,6 +1,8 @@
 " Use the Solarized Dark theme
 set background=dark
-colorscheme badwolf
+" colorscheme darkburn
+colorscheme gruvbox
+
 " Use 14pt Monaco
 set guifont=Source\ Code\ Pro\ For\ Powerline:h12
 
