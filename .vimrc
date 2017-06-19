@@ -474,8 +474,13 @@ command! Plugs call fzf#run({
       \ 'options': '--delimiter / --nth -1',
       \ 'sink':    'Explore'})
 
-" end FZF -------------------------------------------------------------}}}
 
+Plug 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" end FZF -------------------------------------------------------------}}}
 
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
@@ -488,22 +493,22 @@ autocmd User Node
   \ endif
 
 
-Plug 'Tagbar'
-Plug 'surround.vim'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 "Colorch schemes {{{
 Plug 'flazz/vim-colorschemes'
 "}}}
-Plug 'ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 """ settings for ctrlp
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 nmap <leader>mu :CtrlPMRU<cr>
 
-Plug 'AutoClose'
-Plug 'matchit.zip'
-Plug 'Tabular'
+Plug 'Townk/vim-autoclose'
+Plug 'vim-scripts/matchit.zip'
+Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
 function! BuildTern(info)
@@ -526,12 +531,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
+
 " let g:syntastic_typescript_tsc_args = "--my --args --here"
 let g:syntastic_typescript_tsc_args = "-t ES5 -m commonjs --experimentalDecorators --emitDecoratorMetadata --sourceMap true --moduleResolution node"
 """ End of syntastic settings
 """}}}
 Plug 'terryma/vim-multiple-cursors'
-Plug 'jshint.vim'
 Plug 'mattn/emmet-vim'
 Plug 'isRuslan/vim-es6'
 " Javascript syntax: https://github.com/othree/yajs.vim
@@ -580,7 +586,7 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'The-NERD-tree'
+Plug 'scrooloose/nerdtree'
 nnoremap <leader>nt :NERDTreeToggle<CR>
 map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>

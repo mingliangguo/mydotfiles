@@ -123,7 +123,9 @@ source ~/.myprofile
 
 
 
+# enables fzf for cli (history search, etc.)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 eval $(thefuck --alias)
 
 
