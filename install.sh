@@ -1,7 +1,31 @@
 #!/usr/bin/env bash
+xcode-select —install
+sudo xcodebuild -license
+# install brew first
+echo "install brew"
+
+# install brew first
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# install cask
+brew tap caskroom/cask
+
+brew install wget
+
+echo "install oh-my-zsh"
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+chsh -s `which zsh`
+
+# install the theme
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+# install the interactive cd plugin
+git clone https://github.com/changyuheng/zsh-interactive-cd.git ~/.zsh/zsh-interactive-cd/
+# install gradle plugin
+git clone git://github.com/eriwen/gradle-completion ~/.zsh/gradle-completion
 
 # install powerline fonts
-git clone git@github.com:powerline/fonts.git ~/.fonts
+git clone https://github.com/powerline/fonts.git ~/.fonts
 . ~/.fonts/install.sh
 
 # install powerline
