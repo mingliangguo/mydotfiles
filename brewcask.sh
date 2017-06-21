@@ -74,5 +74,3 @@ gem install jekyll-gist
 # install java
 brew cask install java
 
-
-
