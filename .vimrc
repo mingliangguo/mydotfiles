@@ -520,7 +520,9 @@ endfunction
 
 " Plugins for javascript development
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
-Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'scrooloose/syntastic'
+" better navigation support for syntastic errors
+Plug 'tpope/vim-unimpaired'
 Plug 'leafgarland/typescript-vim'
 
 set statusline+=%#warningmsg#
