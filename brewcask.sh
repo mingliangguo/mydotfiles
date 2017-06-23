@@ -53,10 +53,12 @@ brew install icdiff
 brew install the_silver_searcher
 
 # softwares
-brew cask install alfred bettertouchtool firefox google-chrome iterm2 keyremap4macbook skype sublime-text textexpander  dropbox 1password  divvy bartender disk-inventory-x flux beyond-compare sogouinput macvima dash wallpaper-wizard intellij-idea-ce eclipse-jee
+brew cask install alfred bettertouchtool firefox google-chrome iterm2 keyremap4macbook skype sublime-text textexpander  dropbox 1password  divvy bartender disk-inventory-x flux beyond-compare sogouinput macvima dash wallpaper-wizard intellij-idea-ce eclipse-jee vivaldi
+brew cask install vnc-viewer
 brew cask install visual-studio-code
 brew cask install macdown
 brew cask install keepassxc
+brew cask install gas-mask
 
 # vagrant and virtual box
 # https://gist.github.com/tbonesteaks/000dc2d0584f30013913

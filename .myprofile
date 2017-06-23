@@ -16,9 +16,9 @@ fi
 export VISUAL='vim'
 
 # My own alias
-alias setJdk6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
-alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
-alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+# alias setJdk6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
+# alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+# alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
 alias setGradle211='export GRADLE_HOME=~/tools/gradle-2.11 && export PATH=$GRADLE_HOME/bin:$PATH'
 alias setGradle213='export GRADLE_HOME=~/tools/gradle-2.13 && export PATH=$GRADLE_HOME/bin:$PATH'
@@ -73,6 +73,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 setGradle213
 
 source ~/.rvm/scripts/rvm
+eval "$(rbenv init -)"
 
 fpath=($HOME/.zsh/gradle-completion $fpath)
 
@@ -87,3 +88,5 @@ source ~/.zsh/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+# enables fzf for cli (history search, etc.)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
