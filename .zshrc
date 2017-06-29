@@ -8,7 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="ys"
+# ZSH_THEME="refined"
+ZSH_THEME="steeef"
 #
 
 # Theme setting for powerlevel9k
@@ -95,7 +97,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode colored-man colorize github vagrant brew mvn gradle Forklift httpie node npm pip python ruby rvm screen tmux osx zsh-syntax-highlighting)
+plugins=(git vi-mode colored-man colorize github vagrant brew mvn gradle httpie node npm pip python ruby rvm screen tmux zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,19 +122,4 @@ source $ZSH/oh-my-zsh.sh
 
 # include some common stuffs
 source ~/.myprofile
-
-
-
-# eval $(thefuck --alias)
-
-
-# enable gradle auto-completion.
-# zstyle ':completion:*' use-cache on
-#
-# # Default is `"/(build|integTest|out)/"`
-# export GRADLE_COMPLETION_EXCLUDE_PATTERN="/(build|integTest|samples|smokeTest|testFixtures|templates|out|features)/"
-# # Essentially turn off checking for changed scripts
-# export GRADLE_COMPLETION_EXCLUDE_PATTERN="gradle"
-
-# fpath=(/Users/gary/.zsh/gradle-completion $fpath)
 

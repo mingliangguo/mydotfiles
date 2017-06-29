@@ -211,7 +211,7 @@
   prompt = false
 
 [difftool "icdiff"]
-  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+  cmd = /usr/bin/icdiff --line-numbers $LOCAL $REMOTE
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
