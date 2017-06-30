@@ -24,6 +24,8 @@ git clone https://github.com/changyuheng/zsh-interactive-cd.git ~/.zsh/zsh-inter
 # install gradle plugin
 git clone git://github.com/eriwen/gradle-completion ~/.zsh/gradle-completion
 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
 # install powerline fonts
 git clone https://github.com/powerline/fonts.git ~/.fonts
 . ~/.fonts/install.sh
