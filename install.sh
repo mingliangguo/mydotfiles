@@ -1,19 +1,10 @@
 #!/usr/bin/env bash
 xcode-select —install
 sudo xcodebuild -license
-# install brew first
-echo "install brew"
-
-# install brew first
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# install cask
-brew tap caskroom/cask
-
-brew install wget
-
+#
 echo "install oh-my-zsh"
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+# wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s `which zsh`
 
 # install the theme

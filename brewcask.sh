@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # install brew first
+echo "install brew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install cask
@@ -8,19 +9,14 @@ brew tap caskroom/cask
 
 # install gpg
 brew install gpg
+brew install libyaml
+
 # utils
 brew install binutils
 brew install cmake
 brew install wget --with-iri
 brew install tree
-# After GPG is installed (or if it is already installed), install the security key for RVM:
-# Ruby related
-# check http://www.ruby-lang.org/en/downloads/ to get the recommended version
-command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-rvm install ruby-2.4.1
-# brew install rbenv ruby-build rbenv-default-gems rbenv-gemset
-brew install libyaml
-gem update
+# 
 # setup vim and macvim
 brew rm vim vim python macvim
 brew install python
@@ -59,6 +55,7 @@ brew cask install visual-studio-code
 brew cask install macdown
 brew cask install keepassxc
 brew cask install gas-mask
+brew cask install itsycal
 
 # vagrant and virtual box
 # https://gist.github.com/tbonesteaks/000dc2d0584f30013913
@@ -67,11 +64,6 @@ brew install Caskroom/cask/virtualbox-extension-pack
 brew install Caskroom/cask/vagrant
 brew install Caskroom/cask/vagrant-manager
 
-
-# install jekyll
-gem install jekyll bundler
-gem install jekyll-paginate
-gem install jekyll-gist
 
 # install java
 brew cask install java
