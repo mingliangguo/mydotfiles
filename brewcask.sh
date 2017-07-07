@@ -49,6 +49,7 @@ brew install icdiff
 brew install the_silver_searcher
 
 # softwares
+# To complete the installation of Cask sogouinput, you must also run the installer at '/usr/local/Caskroom/sogouinput/3.7.0.1459/安装搜狗输入法.app'
 brew cask install alfred bettertouchtool firefox google-chrome iterm2 keyremap4macbook skype sublime-text textexpander  dropbox 1password  divvy bartender disk-inventory-x flux beyond-compare sogouinput macvima dash wallpaper-wizard intellij-idea-ce eclipse-jee vivaldi
 brew cask install vnc-viewer
 brew cask install visual-studio-code
