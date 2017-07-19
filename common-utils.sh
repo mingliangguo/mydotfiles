@@ -19,7 +19,7 @@ git clone https://github.com/powerline/fonts.git ~/.fonts
 # install powerline
 pip install powerline-status
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 # install tmux-powerline
 mkdir ~/.tmux
