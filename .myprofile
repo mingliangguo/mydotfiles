@@ -68,3 +68,4 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # enables fzf for cli (history search, etc.)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval `ssh-agent`
