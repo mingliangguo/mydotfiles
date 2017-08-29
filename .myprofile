@@ -23,13 +23,13 @@ export VISUAL='vim'
 # alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 # alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
-alias setGradle211='export GRADLE_HOME=~/tools/gradle-2.11 && export PATH=$GRADLE_HOME/bin:$PATH'
+# alias setGradle211='export GRADLE_HOME=~/tools/gradle-2.11 && export PATH=$GRADLE_HOME/bin:$PATH'
 alias setGradle213='export GRADLE_HOME=~/tools/gradle-2.13 && export PATH=$GRADLE_HOME/bin:$PATH'
-alias setGradle33='export GRADLE_HOME=~/tools/gradle-3.3 && export PATH=$GRADLE_HOME/bin:$PATH'
+# alias setGradle33='export GRADLE_HOME=~/tools/gradle-3.3 && export PATH=$GRADLE_HOME/bin:$PATH'
 
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup && brew cask cleanup'
-alias ycmBuild='cd ~/.vim/plugged/YouCompleteMe && ./install.sh --tern-completer'
+alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py --tern-completer && popd'
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$JAVA_HOME/bin:$PATH

@@ -33,6 +33,9 @@ brew install tmux
 brew install reattach-to-user-namespace
 brew install fzf
 
+# facebook path picker
+brew install fpp
+
 # install node
 brew install node
 
@@ -55,6 +58,8 @@ brew cask install java
 
 # To complete the installation of Cask sogouinput, you must also run the installer at '/usr/local/Caskroom/sogouinput/3.7.0.1459/安装搜狗输入法.app'
 brew cask install alfred bettertouchtool iterm2 keyremap4macbook skype textexpander dropbox 1password  divvy bartender disk-inventory-x flux beyond-compare sogouinput dash wallpaper-wizard 
+# rime input 
+brew cask install squirrel
 # install IDEs
 brew cask install intellij-idea-ce eclipse-jee  sublime-text visual-studio-code
 # install browsers

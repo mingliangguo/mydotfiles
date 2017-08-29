@@ -5,14 +5,11 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
-    // fontFamily: '"SourceCodePro Powerline Awesom Regular", Monaco, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
-    // fontFamily: '"SourceCodePro+Powerline+Awesome+Regular", Monaco, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
-      // font family with optional fallbacks
-    // fontFamily: '"Meslo LG L DZ for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
-    fontFamily: '"SourceCodePro+Powerline+Awesome Regular", Monaco, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    // fontFamily: 'Source Code Pro for Powerline, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"SourceCodePro+Powerline+Awesome Regular", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -36,8 +33,7 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: 'x-row > span { line-height: 1.3em; }',
-    // termCSS: '',
+    termCSS: '',
 
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -66,19 +62,19 @@ module.exports = {
       lightBlack: '#808080',
       lightRed: '#ff0000',
       lightGreen: '#33ff00',
-      lightYellow: '#ffff00',
+      IIlightYellow: '#ffff00',
       lightBlue: '#0066ff',
       lightMagenta: '#cc00ff',
       lightCyan: '#00ffff',
       lightWhite: '#ffffff'
     },
 
-    // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
+    // the shell t}} run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
     // make sure to use a full path if the binary name doesn't work
     // (e.g `C:\\Windows\\System32\\bash.exe` instead of just `bash.exe`)
     // if you're using powershell, make sure to remove the `--login` below
-    shell: '',
+    shell: '/bin/zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -110,13 +106,8 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyperline',
-    'hyperpower',
-    'hyper-dark-dracula',
-    'hyper-blink',
-    // 'hyper-solarized-dark',
-    'hyperlinks',
-    'hyper-tab-icons'
+      'hyperpower',
+      'hyper-dark-scrollbar'
   ],
 
   // in development, you can create a directory under
