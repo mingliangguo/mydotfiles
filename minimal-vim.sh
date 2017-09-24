@@ -8,23 +8,35 @@ then
   exit 1
 fi
 
+SAVE_AS="echo "
+if [ -x "$(command -v wget)" ]; then
+    echo "wget found!!"
+    SAVE_AS="wget -O "
+elif [ -x "$(command -v curl)" ]; then
+    echo "curl found!!"
+    SAVE_AS="curl -LSso "
+else
+    echo "!!! Neither wget nor curl exists in the system, having to exit!!!"
+    exit 1
+fi
+
 echo "installing pathogen"
 mkdir -p ~/.vim/bundle ~/.vim/autoload
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+$SAVE_AS ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 echo "installing color themes..."
 mkdir -p ~/.vim/colors
-curl -LSso ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+$SAVE_AS ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
 echo "installing sensible.vim..."
 mkdir -p ~/.vim/bundle/plugin
 cd ~/.vim/bundle/plugin
-curl -LSso ~/.vim/bundle/plugin/sensible.vim  https://raw.githubusercontent.com/tpope/vim-sensible/master/plugin/sensible.vim
+$SAVE_AS ~/.vim/bundle/plugin/sensible.vim  https://raw.githubusercontent.com/tpope/vim-sensible/master/plugin/sensible.vim
 
 echo "installing nerdtree.vim"
 mkdir -p ~/temp/nerdtree
 cd ~/temp/nerdtree
-wget https://github.com/scrooloose/nerdtree/archive/5.0.0.zip
+$SAVE_AS 5.0.0.zip https://github.com/scrooloose/nerdtree/archive/5.0.0.zip
 unzip 5.0.0.zip
 mv nerdtree-5.0.0 nerdtree
 mv nerdtree ~/.vim/bundle/
@@ -34,7 +46,7 @@ rm -rf ~/temp/nerdtree
 echo "installing ctrlp.vim"
 mkdir -p ~/temp/ctrlp
 cd ~/temp/ctrlp
-wget https://github.com/ctrlpvim/ctrlp.vim/archive/1.80.zip
+$SAVE_AS 1.80.zip https://github.com/ctrlpvim/ctrlp.vim/archive/1.80.zip
 unzip 1.80.zip
 mv  ctrlp.vim-1.80 ctrlp
 mv ctrlp ~/.vim/bundle/
