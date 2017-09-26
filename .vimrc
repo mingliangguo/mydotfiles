@@ -134,8 +134,6 @@ if has("gui_running")
     " set guifont=Hack:h12
 endif
 
-" colorscheme badwolf
-
 " Set some junk
 set autoindent " Copy indent from last line when starting new line.
 set diffopt=filler " Add vertical spaces to keep right and left aligned
@@ -219,19 +217,8 @@ map <C-L> <C-W>l
 " Sudo write (,W)
 noremap <leader>W :w !sudo tee %<CR>
 
-" Remap :W to :w
-command W w
-command Wq wq
-
 " Better mark jumping (line + col)
 nnoremap ' `
-
-" Hard to type things
-imap >> →
-imap << ←
-imap ^^ ↑
-imap VV ↓
-imap aa λ
 
 " Toggle show tabs and trailing spaces (,c)
 set lcs=tab:›\ ,trail:·,eol:¬,nbsp:_
@@ -251,18 +238,9 @@ if &term == "xterm-ipad"
   inoremap <Leader><Tab> <Tab>
 endif
 
-" Indent/unident block (,]) (,[)
-nnoremap <leader>] >i{<CR>
-nnoremap <leader>[ <i{<CR>
-
 " Paste toggle (,p)
 " set pastetoggle=<leader>p
 " map <leader>p :set invpaste paste?<CR>
-
-" NERD Commenter
-let NERDSpaceDelims=1
-let NERDCompactSexyComs=1
-let g:NERDCustomDelimiters = { 'racket': { 'left': ';', 'leftAlt': '#|', 'rightAlt': '|#' } }
 
 " Buffer navigation (,,) (,]) (,[) (,ls)
 map <Leader>, <C-^>
@@ -272,26 +250,6 @@ map <Leader>ls :buffers<CR>
 
 " Close Quickfix window (,qq)
 map <leader>qq :cclose<CR>
-
-" Yank from cursor to end of line
-nnoremap Y y$
-
-" Insert newline
-map <leader><Enter> o<ESC>
-
-" Search and replace word under cursor (,*)
-nnoremap <leader>* :%s/\<<C-r><C-w>\>//<Left>
-
-" Strip trailing whitespace (,ss)
-function! StripWhitespace ()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    :%s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace ()<CR>
-
 " ------------------------------------------------------------------ 
 " Desc: Search
 " ------------------------------------------------------------------ 
@@ -373,19 +331,6 @@ set ve=block
 
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fenc=utf-8
-"set encoding=utf-8
-
-"相对行号 要想相对行号起作用要放在显示行号后面
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <F7> :call NumberToggle()<cr>
 
 "将-连接符也设置为单词
 set isk+=-
@@ -399,19 +344,10 @@ inoremap <c-k> <up>
 inoremap <c-l> <right>
 inoremap <c-h> <left>
 
-"修改vim的正则表达
-" nnoremap / /\v
-" vnoremap / /\v
-
 "折叠html标签 ,fold tag
 nnoremap <leader>ft vatzf
 "使用,v来选择刚刚复制的段落，这样可以用来缩进
 nnoremap <leader>v v`]
-
-"使用,w来垂直分割窗口，这样可以同时查看多个文件,如果想水平分割则<c-w>s
-nnoremap <leader>w <c-w>v<c-w>l
-nnoremap <leader>wc <c-w>c
-" nnoremap <leader>wt <c-w>w
 
 "html中的js加注释 取消注释
 nmap <leader>h I//jj
@@ -420,10 +356,6 @@ nmap <leader>ch ^xx
 nmap <leader>q :execute "cd" expand("%:h")<CR>
 "搜索替换
 nmap <leader>s :,s///c
-
-"取消粘贴缩进
-" nmap <leader>p :set paste<CR>
-" nmap <leader>pp :set nopaste<CR>
 
 " shortcuts for switch file types
 nmap <leader>fj :set ft=javascript<CR>
@@ -443,6 +375,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'jparise/vim-graphql'
+Plug 'tfnico/vim-gradle'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -520,9 +453,7 @@ endfunction
 
 " Plugins for javascript development
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
-Plug 'scrooloose/syntastic'
-" better navigation support for syntastic errors
-Plug 'tpope/vim-unimpaired'
+Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'leafgarland/typescript-vim'
 
 set statusline+=%#warningmsg#
@@ -534,12 +465,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
+" disable syntax check for java
+let g:loaded_syntastic_java_javac_checker = 1
 
 " let g:syntastic_typescript_tsc_args = "--my --args --here"
 let g:syntastic_typescript_tsc_args = "-t ES5 -m commonjs --experimentalDecorators --emitDecoratorMetadata --sourceMap true --moduleResolution node"
 """ End of syntastic settings
 """}}}
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
 Plug 'isRuslan/vim-es6'
 " Javascript syntax: https://github.com/othree/yajs.vim
@@ -584,7 +517,7 @@ let g:UltiSnipsListSnippets="<c-h>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-Plug 'https://github.com/tpope/vim-fugitive.git'
+" Plug 'https://github.com/tpope/vim-fugitive.git'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -602,56 +535,56 @@ let NERDTreeWinPos=1
 map <leader>r :NERDTreeFind<cr>
 
 " Navigation
-Plug 'http://github.com/gmarik/vim-visual-star-search.git'
+" Plug 'http://github.com/gmarik/vim-visual-star-search.git'
 
-Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'MarcWeber/vim-addon-mw-utils'
 
 Plug 'Valloric/YouCompleteMe'
-" Plug 'Lokaltog/vim-powerline'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
+Plug 'Lokaltog/vim-powerline'
+" Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+"
 " === airline settings
-" let g:airline_theme = 'zenburn'
-let g:airline_theme = 'jellybeans'
-" let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" " let g:airline_theme = 'zenburn'
+" let g:airline_theme = 'jellybeans'
+" " let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
 
-" vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = '▶'
-  let g:airline_left_alt_sep      = '»'
-  let g:airline_right_sep         = '◀'
-  let g:airline_right_alt_sep     = '«'
-  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-  let g:airline#extensions#readonly#symbol   = '⊘'
-  let g:airline#extensions#linecolumn#prefix = '¶'
-  let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = '␊'
-  let g:airline_symbols.branch    = '⎇'
-  let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
+" " vim-airline
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+"
+" if !exists('g:airline_powerline_fonts')
+"   let g:airline#extensions#tabline#left_sep = ' '
+"   let g:airline#extensions#tabline#left_alt_sep = '|'
+"   let g:airline_left_sep          = '▶'
+"   let g:airline_left_alt_sep      = '»'
+"   let g:airline_right_sep         = '◀'
+"   let g:airline_right_alt_sep     = '«'
+"   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+"   let g:airline#extensions#readonly#symbol   = '⊘'
+"   let g:airline#extensions#linecolumn#prefix = '¶'
+"   let g:airline#extensions#paste#symbol      = 'ρ'
+"   let g:airline_symbols.linenr    = '␊'
+"   let g:airline_symbols.branch    = '⎇'
+"   let g:airline_symbols.paste     = 'ρ'
+"   let g:airline_symbols.paste     = 'Þ'
+"   let g:airline_symbols.paste     = '∥'
+"   let g:airline_symbols.whitespace = 'Ξ'
+" else
+"   let g:airline#extensions#tabline#left_sep = ''
+"   let g:airline#extensions#tabline#left_alt_sep = ''
 
   " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-endif
+  " let g:airline_left_sep = ''
+  " let g:airline_left_alt_sep = ''
+  " let g:airline_right_sep = ''
+  " let g:airline_right_alt_sep = ''
+  " let g:airline_symbols.branch = ''
+  " let g:airline_symbols.readonly = ''
+  " let g:airline_symbols.linenr = ''
+" endif
 
 " === end of airline settings
 
@@ -718,6 +651,8 @@ au BufNewFile,BufRead *.{ts} set filetype=typescript
 " au BufNewFile,BufRead *.{module,install} set filetype=drupal | runtime! ftplugin/php.vim | runtime! syntax/php.vim
 au BufRead,BufNewFile *.c,*.cpp,*.py,*.php, match Error /\%80v.\%81v./
 " au BufRead,BufNewFile *.c,*.cpp,*.py 2match Underlined /.\%81v/
+" use groovy syntax for build.gradle
+au BufNewFile,BufRead *.gradle setf groovy
 
 au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
@@ -820,25 +755,6 @@ let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 let g:tagbar_width = 40
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"When .vimrc is edited, reload it
-" There seems to be something wrong with the auto-reload function. It will
-" cause the vim to open a dummy window and hang there. so i disabled it.
-" autocmd! bufwritepost .vimrc source % 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" My hotkey TIPS
-" ---- Code foldering
-" foldering code: zc
-" unfoldering code: zo
-" foldering all: zM
-" unfoldering all: zR
-"
-" ----- Zen coding
-" Ctrl + j + ,
-" 
-" ----- Motion editing
-" ci',ci",ci(,ci[,ci{,ci< - modify code inside of the signs
-" di',di",di(,di[,di{,di< - delete code inside of the signs
-" yi',yi",yi(,yi[,yi{,yi< - yank code inside of the signs
+" enable true color for terminal - nvim
+set termguicolors
 
