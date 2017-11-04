@@ -24,20 +24,15 @@ export VISUAL='vim'
 # alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
 # alias setGradle211='export GRADLE_HOME=~/tools/gradle-2.11 && export PATH=$GRADLE_HOME/bin:$PATH'
-alias setGradle213='export GRADLE_HOME=~/tools/gradle-2.13 && export PATH=$GRADLE_HOME/bin:$PATH'
+# alias setGradle213='export GRADLE_HOME=~/tools/gradle-2.13 && export PATH=$GRADLE_HOME/bin:$PATH'
 # alias setGradle33='export GRADLE_HOME=~/tools/gradle-3.3 && export PATH=$GRADLE_HOME/bin:$PATH'
+
+# use gradle 2.13
+# setGradle213
 
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup && brew cask cleanup'
 alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py --tern-completer && popd'
-
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH=$GRADLE_HOME/bin:$PATH
-# export GRADLE_HOME=~/tools/gradle-2.13
-export TMPDIR=~/temp/temp_cache
-
-
 # allow clobber, otherwise sdkman will throw errors
 set +o noclobber
 ## Enable vi mode in zsh
@@ -73,9 +68,6 @@ export KEYTIMEOUT=1
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# use gradle 2.13
-setGradle213
-
 source ~/.rvm/scripts/rvm
 eval "$(rbenv init -)"
 
@@ -83,6 +75,12 @@ fpath=($HOME/.zsh/gradle-completion $fpath)
 
 export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.1
 export PATH=$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$PATH
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export PATH=$JAVA_HOME/bin:$PATH
+export GRADLE_HOME=~/tools/gradle-2.13
+export PATH=$GRADLE_HOME/bin:$PATH
+export TMPDIR=~/temp/temp_cache
 
 source ~/.aliases
 source ~/.zsh/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh

@@ -5,13 +5,7 @@
 " Description  : My personal compilation of vimrc
 " ======================================================================================
 
-
-"/////////////////////////////////////////////////////////////////////////////
-" General
-"/////////////////////////////////////////////////////////////////////////////
 "
-"===================================================
-" 
 " Install VimPlug if not present
 if empty(glob('~/.vim/autoload/plug.vim'))
   !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -33,7 +27,7 @@ set list
 
 " enable spell check in English
 set spelllang=en_us
-set complete+=k	
+set complete+=k
 autocmd FileType mail setlocal spell spelllang=en_us
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
@@ -53,61 +47,24 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " map : as ;, to save key stroke
 nnoremap ; :
 
-" source $VIMRUNTIME/vimrc_example.vim
-" behave xterm  " set mouse behavior as xterm
+set backup " make backup file and leave it around
 
-"set path=.,/usr/include/*,, " where gf, ^Wf, :find will search 
-set backup " make backup file and leave it around 
-"UNUSED: set backupdir=%tmp%
-"UNUSED: set directory=.,%tmp%
-
-" setup back and swap directory
-let data_dir = $HOME.'/.data/'
-let backup_dir = data_dir . 'backup' 
-let swap_dir = data_dir . 'swap' 
-let undo_dir = data_dir . 'undo' 
-if finddir(data_dir) == ''
-    silent call mkdir(data_dir)
-endif
-if finddir(backup_dir) == ''
-    silent call mkdir(backup_dir)
-endif
-if finddir(swap_dir) == ''
-    silent call mkdir(swap_dir)
-endif
-if finddir(undo_dir) == ''
-    silent call mkdir(undo_dir)
-endif
-set backupdir=$HOME/.data/backup " where to put backup file 
-set directory=$HOME/.data/swap " where to put swap file 
-set undodir=$HOME/.data/undo " where to put undo file 
-unlet data_dir
-unlet backup_dir
-unlet swap_dir
-
-" programming related 
-set tags+=./tags,./../tags,./**/tags,tags " which tags files CTRL-] will find 
-set makeef=error.err " the errorfile for :make and :grep 
-
-" NOTE: viminfo
-" for MS-DOS, Windows and OS/2: '20,<50,s10,h,rA:,rB:,
-" for Amiga: '20,<50,s10,h,rdf0:,rdf1:,rdf2:
-" for others: '20,<50,s10,h
-set viminfo+=! " make sure it can save viminfo 
+" programming related
+set tags+=./tags,./../tags,./**/tags,tags " which tags files CTRL-] will find
+set makeef=error.err " the errorfile for :make and :grep
 
 " Redefine the shell redirection operator to receive both the stderr messages
 " and stdout messages
 set shellredir=>%s\ 2>&1
 
-set history=50 " keep 50 lines of command line history
 set updatetime=1000 " default = 4000
 set autoread " auto read same-file change ( better for vc/vim change )
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Visual
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
-set showmatch " show matching paren 
+set showmatch " show matching paren
 set matchtime=0 " 0 second to show the matching paren ( much faster )
 
 " Enable 256 colors palette in Gnome Terminal
@@ -127,11 +84,6 @@ if has("gui_running")
     set t_Co=256
     set guitablabel=%M\ %t
     set guifont=Inconsolata-g\ for\ Powerline:h14
-    " set guifont=Roboto\ Mono\ for\ Powerline:h15
-    " set guifont=Tinos\ for\ Powerline:h17
-    " set gfn=Source\ Code\ Pro\ Light\ For\ Powerline:h14 
-    " set gfn=Monaco:h14
-    " set guifont=Hack:h12
 endif
 
 " Set some junk
@@ -146,20 +98,12 @@ set foldlevel=2
 set foldmethod=syntax " Markers are used to specify folds.
 set foldminlines=0 " Allow folding single lines
 set foldnestmax=3 " Set max fold nesting level
-set formatoptions=
-set formatoptions+=c " Format comments
-set formatoptions+=r " Continue comments by default
-set formatoptions+=o " Make comment when using o or O from comment line
-set formatoptions+=q " Format comments with gq
-set formatoptions+=n " Recognize numbered lists
-set formatoptions+=2 " Use indent from 2nd line of a paragraph
-set formatoptions+=l " Don't break lines that are already long
-set formatoptions+=1 " Break before 1-letter words
 set gdefault " By default add g flag to search/replace. Add g to toggle.
 set hidden " When a buffer is brought to foreground, remember undo history and marks.
 set history=1000 " Increase history from 20 default to 1000
 set ignorecase " Ignore case of searches.
 set incsearch " Highlight dynamically as pattern is typed.
+set hlsearch " highlight selected
 set laststatus=2 " Always show status line
 set lispwords+=defroutes " Compojure
 set lispwords+=defpartial,defpage " Noir core
@@ -250,25 +194,13 @@ map <Leader>ls :buffers<CR>
 
 " Close Quickfix window (,qq)
 map <leader>qq :cclose<CR>
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Search
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 syntax on
-set hlsearch
 
 set clipboard+=unnamed
-" define the copy/paste judged by clipboard
-" if &clipboard ==# "unnamed"
-"     " fix the visual paste bug in vim
-"     " vnoremap <silent>p :call g:()<CR>
-" else
-"     " general copy/paste.
-"     " NOTE: y,p,P could be mapped by other key-mapping
-"     map <unique> <leader>y "+y
-"     map <unique> <leader>p "*p
-"     " map <unique> <leader>P "*P
-" endif
 
 " map keys to switch between splitted windows
 nnoremap <unique> <S-Up> <C-W><Up>
@@ -289,7 +221,7 @@ map <leader>h :bprevious<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 map <leader>t<leader> :tabnext "
 
 " Let 'tl' toggle between this and the last accessed tab
@@ -332,36 +264,15 @@ set ve=block
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set fenc=utf-8
 
-"将-连接符也设置为单词
-set isk+=-
+set numberwidth=4          " width of the linenumber
+set whichwrap=b,s,<,>,[,]  " let backspace, spce, up/down arrow move to the next line if it's in the beginning/ending of a line.
 
-set numberwidth=4          "行号栏的宽度
-set whichwrap=b,s,<,>,[,]  "让退格，空格，上下箭头遇到行首行尾时自动移到下一行（包括insert模式）
-
-"插入模式下移动
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
-inoremap <c-h> <left>
-
-"折叠html标签 ,fold tag
+" folder html tags
 nnoremap <leader>ft vatzf
-"使用,v来选择刚刚复制的段落，这样可以用来缩进
-nnoremap <leader>v v`]
 
-"html中的js加注释 取消注释
-nmap <leader>h I//jj
-nmap <leader>ch ^xx
-"切换到当前目录
+" switch to the current directory
 nmap <leader>q :execute "cd" expand("%:h")<CR>
-"搜索替换
-nmap <leader>s :,s///c
 
-" shortcuts for switch file types
-nmap <leader>fj :set ft=javascript<CR>
-nmap <leader>fc :set ft=css<CR>
-nmap <leader>fx :set ft=xml<CR>
-nmap <leader>fm :set ft=mako<CR>
 
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
@@ -441,6 +352,11 @@ nmap <leader>mu :CtrlPMRU<cr>
 
 Plug 'Townk/vim-autoclose'
 Plug 'vim-scripts/matchit.zip'
+Plug 'szw/vim-maximizer'
+" use F8 to togger the maximum screen
+nnoremap <silent><F8> :MaximizerToggle<CR>
+vnoremap <silent><F8> :MaximizerToggle<CR>gv
+inoremap <silent><F8> <C-o>:MaximizerToggle<CR>
 Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
@@ -541,57 +457,14 @@ map <leader>r :NERDTreeFind<cr>
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'Lokaltog/vim-powerline'
-" Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-"
-" === airline settings
-" " let g:airline_theme = 'zenburn'
-" let g:airline_theme = 'jellybeans'
-" " let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-
-" " vim-airline
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-"
-" if !exists('g:airline_powerline_fonts')
-"   let g:airline#extensions#tabline#left_sep = ' '
-"   let g:airline#extensions#tabline#left_alt_sep = '|'
-"   let g:airline_left_sep          = '▶'
-"   let g:airline_left_alt_sep      = '»'
-"   let g:airline_right_sep         = '◀'
-"   let g:airline_right_alt_sep     = '«'
-"   let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-"   let g:airline#extensions#readonly#symbol   = '⊘'
-"   let g:airline#extensions#linecolumn#prefix = '¶'
-"   let g:airline#extensions#paste#symbol      = 'ρ'
-"   let g:airline_symbols.linenr    = '␊'
-"   let g:airline_symbols.branch    = '⎇'
-"   let g:airline_symbols.paste     = 'ρ'
-"   let g:airline_symbols.paste     = 'Þ'
-"   let g:airline_symbols.paste     = '∥'
-"   let g:airline_symbols.whitespace = 'Ξ'
-" else
-"   let g:airline#extensions#tabline#left_sep = ''
-"   let g:airline#extensions#tabline#left_alt_sep = ''
-
-  " powerline symbols
-  " let g:airline_left_sep = ''
-  " let g:airline_left_alt_sep = ''
-  " let g:airline_right_sep = ''
-  " let g:airline_right_alt_sep = ''
-  " let g:airline_symbols.branch = ''
-  " let g:airline_symbols.readonly = ''
-  " let g:airline_symbols.linenr = ''
-" endif
-
-" === end of airline settings
 
 " Add plugins to &runtimepath
 call plug#end()
 
+syntax enable
 colorscheme gruvbox
+" colorscheme solarized
+" let g:solarized_termcolors=256
 " colorscheme base16-default-dark
 set background=dark
 
@@ -604,8 +477,8 @@ filetype plugin indent on
 "/////////////////////////////////////////////////////////////////////////////
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
-let g:ycm_complete_in_comments = 1 
-let g:ycm_seed_identifiers_with_syntax = 1 
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 
@@ -613,9 +486,9 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " Auto Command
 "/////////////////////////////////////////////////////////////////////////////
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Only do this part when compiled with support for autocommands.
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 if has("autocmd")
   " Put these in an autocmd group, so that we can delete them easily.
@@ -637,12 +510,12 @@ if has("autocmd")
 endif " has("autocmd")
 "
 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 " Desc: Buffer
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
 au BufNewFile,BufEnter * set cpoptions+=d " NOTE: ctags find the tags file from the current path instead of the path of currect file
-au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full) 
+au BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full)
 au BufNewFile,BufRead *.avs set syntax=avs " for avs syntax file.
 au BufNewFile,BufRead *.sql,*.cql set syntax=sql " for sql syntax file.
 " au BufNewFile,BufRead *.inc,*.test set filetype=php
@@ -656,17 +529,17 @@ au BufNewFile,BufRead *.gradle setf groovy
 
 au FileType c,cpp,cs,swig set nomodeline " this will avoid bug in my project with namespace ex, the vim will tree ex:: as modeline.
 
-" ------------------------------------------------------------------ 
-" Desc: VimWiki 
-" ------------------------------------------------------------------ 
-let g:vimwiki_list = [ 
-      \ { 
+" ------------------------------------------------------------------
+" Desc: VimWiki
+" ------------------------------------------------------------------
+let g:vimwiki_list = [
+      \ {
       \     'path': "~/Dropbox/vimwiki/LifeWiki",
       \     'template_path': '~/Dropbox/vimwiki/templates',
       \     'template_default': 'def_template',
       \     'syntax': 'markdown', 'ext': '.md',
       \     'template_ext': '.html', 'auto_export': 0
-      \ }, 
+      \ },
       \ {
       \     'path': "~/Dropbox/vimwiki/TechWiki",
       \     'template_path': '~/Dropbox/vimwiki/templates/',
@@ -698,16 +571,16 @@ let g:vimwiki_list = [
 
 " use camel case
 let g:vimwiki_camel_case = 0
- 
+
 " use different colors for completed items
 let g:vimwiki_hl_cb_checked = 1
- 
+
 " hide vimwiki menu
 let g:vimwiki_menu = ''
- 
+
 " hide vimwiki folder, could be slow if enabled
 "let g:vimwiki_folding = 1
- 
+
 " count CJK characters when calculate length
 let g:vimwiki_CJK_length = 1
 
@@ -718,35 +591,35 @@ let g:vimwiki_html_header_numbering_sym = '.'
 " valid html tags
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 
-" ------------------------------------------------------------------ 
-" Desc: zencoding 
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
+" Desc: zencoding
+" ------------------------------------------------------------------
 
 let g:user_zen_leader_key = '<c-j>'
 
-" ------------------------------------------------------------------ 
-" Desc: surround 
+" ------------------------------------------------------------------
+" Desc: surround
 " 'sb' for block
 " 'si' for an if statement
 " 'sw' for a with statement
 " 'sc' for a comment
 " 'sf' for a for statement
-" ------------------------------------------------------------------ 
+" ------------------------------------------------------------------
 
-" DISABLE { 
+" DISABLE {
 " let g:surround_{char2nr("b")} = "{% block\1 \r..*\r &\1%}\r{% endblock %}"
 " let g:surround_{char2nr("i")} = "{% if\1 \r..*\r &\1%}\r{% endif %}"
 " let g:surround_{char2nr("w")} = "{% with\1 \r..*\r &\1%}\r{% endwith %}"
 " let g:surround_{char2nr("c")} = "{% comment\1 \r..*\r &\1%}\r{% endcomment %}"
 " let g:surround_{char2nr("f")} = "{% for\1 \r..*\r &\1%}\r{% endfor %}"
-" } DISABLE end 
+" } DISABLE end
 
 au FileType vimwiki set wrap
 au FileType markdown set wrap
 
 " map keys for Tagbar
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-nmap <F6> :TagbarToggle<CR> 
+nmap <F6> :TagbarToggle<CR>
 " let tagbar auto close
 let g:tagbar_autoclose = 1
 " let tagbar auto focus when it's toggle on
