@@ -83,7 +83,7 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont=Inconsolata-g\ for\ Powerline:h14
+    set guifont=Fira\ Mono\ for\ Powerline:h14
 endif
 
 " Set some junk
@@ -347,6 +347,7 @@ Plug 'kien/ctrlp.vim'
 """ settings for ctrlp
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
+let g:ctrlp_working_path_mode = 'rw'
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 nmap <leader>mu :CtrlPMRU<cr>
 
@@ -360,15 +361,8 @@ inoremap <silent><F8> <C-o>:MaximizerToggle<CR>
 Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
-function! BuildTern(info)
-  if a:info.status == 'installed' || a:info.force
-    !npm install
-  endif
-endfunction
-
 
 " Plugins for javascript development
-Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'leafgarland/typescript-vim'
 
@@ -446,7 +440,8 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.$','\~$']
 let NERDTreeShowLineNumbers=1
-let NERDTreeWinPos=1
+let NERDTreeWinPos=0
+let g:NERDTreeChDirMode       = 2
 " Let nerdtree sync with opened buffer
 map <leader>r :NERDTreeFind<cr>
 

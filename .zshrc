@@ -1,4 +1,4 @@
-# set term color 
+# set term color
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
@@ -95,7 +95,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode colored-man colorize github vagrant brew mvn gradle Forklift httpie node npm pip python ruby rvm screen tmux osx zsh-syntax-highlighting)
+plugins=(git vi-mode colored-man colorize github vagrant brew mvn gradle Forklift httpie node npm yarn pip python ruby rvm screen tmux osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -139,3 +139,5 @@ source ~/.myprofile
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

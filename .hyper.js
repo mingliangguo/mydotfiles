@@ -9,7 +9,7 @@ module.exports = {
 
     // font family with optional fallbacks
     // fontFamily: 'Source Code Pro for Powerline, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
-    fontFamily: '"SourceCodePro+Powerline+Awesome Regular", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Fira Mono For Powerline", SourceCodePro+Powerline+Awesome Regular", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -87,7 +87,7 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    copyOnSelect: true
 
     // if true, on right click selected text will be copied or pasted if no
     // selection is present (true by default on Windows)
@@ -106,7 +106,7 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-      'hyperpower',
+      // 'hyperpower',
       'hyper-dark-scrollbar'
   ],
 
