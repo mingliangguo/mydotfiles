@@ -327,7 +327,7 @@ endif
 " end FZF -------------------------------------------------------------}}}
 
 Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 
 " <C-w>f to open the file under the cursor in a new vertical split
 autocmd User Node
@@ -337,9 +337,9 @@ autocmd User Node
   \ endif
 
 
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 "Colorch schemes {{{
 Plug 'flazz/vim-colorschemes'
 "}}}
@@ -358,7 +358,6 @@ Plug 'szw/vim-maximizer'
 nnoremap <silent><F8> :MaximizerToggle<CR>
 vnoremap <silent><F8> :MaximizerToggle<CR>gv
 inoremap <silent><F8> <C-o>:MaximizerToggle<CR>
-Plug 'godlygeek/tabular'
 Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
 
