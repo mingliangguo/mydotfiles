@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# enable pyenv
+eval "$(pyenv init -)"
+
 # integrate with [jump](https://github.com/gsamokovarov/jump)
 eval "$(jump shell)"
 
@@ -13,7 +16,6 @@ else
   export EDITOR='vim'
 fi
 
-export VISUAL='vim'
 
 # Fix for 'Could not open a connection to your authentication agent.'
 # eval `ssh-agent -s`
@@ -32,15 +34,29 @@ export VISUAL='vim'
 
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup && brew cask cleanup'
-alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py --tern-completer && popd'
+alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py  --clang-completer'
 # allow clobber, otherwise sdkman will throw errors
 set +o noclobber
 ## Enable vi mode in zsh
 # https://dougblack.io/words/zsh-vi-mode.html
-bindkey -v
 
-bindkey -M viins '^r' history-incremental-search-backward
-bindkey -M vicmd '^r' history-incremental-search-backward
+export VISUAL='vim'
+
+# bindkey -M viins '^r' history-incremental-search-backward
+# bindkey -M vicmd '^r' history-incremental-search-backward
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+bindkey -v
+#
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
 # bindkey '^P' up-history
 # bindkey '^N' down-history
@@ -71,10 +87,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 source ~/.rvm/scripts/rvm
 eval "$(rbenv init -)"
 
-fpath=($HOME/.zsh/gradle-completion $fpath)
+# fpath=($HOME/.zsh/gradle-completion $fpath)
 
 export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.1
-export PATH=$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$PATH:$HOME/.npm-packages/bin
+export PATH=$PATH:$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$HOME/.npm-packages/bin
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$JAVA_HOME/bin:$PATH

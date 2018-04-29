@@ -148,8 +148,10 @@ nnoremap <C-y> 3<C-y>
 
 " Faster split resizing (+,-)
 if bufwinnr(1)
-  map + <C-W>+
-  map - <C-W>-
+  nmap + <C-W>+
+  nmap - <C-W>-
+  nmap > <C-W>>
+  nmap < <C-W><
 endif
 
 " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
@@ -202,12 +204,12 @@ syntax on
 
 set clipboard+=unnamed
 
-" map keys to switch between splitted windows
-nnoremap <unique> <S-Up> <C-W><Up>
-nnoremap <unique> <S-Down> <C-W><Down>
-nnoremap <unique> <S-Left> <C-W><Left>
-nnoremap <unique> <S-Right> <C-W><Right>
-
+" " map keys to switch between splitted windows
+" nnoremap <unique> <S-Up> <C-W><Up>
+" nnoremap <unique> <S-Down> <C-W><Down>
+" nnoremap <unique> <S-Left> <C-W><Left>
+" nnoremap <unique> <S-Right> <C-W><Right>
+"
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
