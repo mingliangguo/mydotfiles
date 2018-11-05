@@ -33,7 +33,7 @@ fi
 # setGradle213
 
 # update brew
-alias bruu='brew update && brew upgrade && brew cleanup && brew cask cleanup'
+alias bruu='brew update && brew upgrade && brew cleanup'
 alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py  --clang-completer'
 # allow clobber, otherwise sdkman will throw errors
 set +o noclobber
@@ -58,27 +58,7 @@ bindkey '^r' history-incremental-search-backward
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
-# bindkey '^P' up-history
-# bindkey '^N' down-history
-# bindkey '^?' backward-delete-char
-# bindkey '^h' backward-delete-char
-# bindkey '^w' backward-kill-word
-# bindkey '^r' history-incremental-search-backward
-#
-# function zle-line-init zle-keymap-select {
-#     VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-#     RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
-#     zle reset-prompt
-# }
-#
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-export KEYTIMEOUT=1
 ## End of vi mode in zsh
-
-# Add RVM to PATH for scripting
-# export PATH="$HOME/.rvm/bin:$PATH"
-# export PATH=$PATH:/Applications/FirefoxDeveloperEdition.app/Contents/MacOS
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -89,14 +69,18 @@ eval "$(rbenv init -)"
 
 # fpath=($HOME/.zsh/gradle-completion $fpath)
 
-export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.1
-export PATH=$PATH:$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$HOME/.npm-packages/bin
+export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.14
+export CASSANDRA_HOME=$HOME/tools/apache-cassandra-3.11.0
+export PATH=$PATH:$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$HOME/.npm-packages/bin:$CASSANDRA_HOME/bin
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH=$JAVA_HOME/bin:$PATH
 export GRADLE_HOME=~/tools/gradle-2.13
 export PATH=$GRADLE_HOME/bin:$PATH
 export TMPDIR=~/temp/temp_cache
+
+# cheat settings
+export CHEATCOLORS=true
 
 source ~/.aliases
 source ~/.zsh/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
@@ -108,3 +92,4 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # enables fzf for cli (history search, etc.)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.workrc ] && source  ~/.workrc

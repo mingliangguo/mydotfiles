@@ -30,7 +30,8 @@ set spelllang=en_us
 set complete+=k
 autocmd FileType mail setlocal spell spelllang=en_us
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
-autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set filetype=markdown
+autocmd FileType markdown set spell spelllang=en_us
 " set spell or set nospell
 
 " highlight the current line
@@ -48,6 +49,10 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nnoremap ; :
 
 set backup " make backup file and leave it around
+set undofile " Persistent Undo.
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " programming related
 set tags+=./tags,./../tags,./**/tags,tags " which tags files CTRL-] will find
@@ -110,12 +115,24 @@ set lispwords+=defpartial,defpage " Noir core
 set lispwords+=defaction,deffilter,defview,defsection " Ciste core
 set lispwords+=describe,it " Speclj TDD/BDD
 set magic " Enable extended regexes.
+" enable very magic in search and replace, refer to: https://cdaddr.com/programming/vim-regexes-are-awesome/
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+" cd to the directory of th ecurrent edited buffer
+nnoremap <leader>cd :cd %:p:h<CR>
+" which replaces the word under cursor for whatever you want; after that, you can keep pressing . 
+" and it will keep substituting all the instances of the original word (ala multiple cursors). 
+" You can skip them with n (as you would in a normal search). The second mapping goes the other way around: substitutes upwards.
+nnoremap c* *``cgn
+nnoremap c# #``cgN
 set mouse=a " Enable mouse in all modes.
 set noerrorbells " Disable error bells.
 set nojoinspaces " Only insert single space after a '.', '?' and '!' with a join command.
 set nostartofline " Don't reset cursor to start of line when moving around.
 set nowrap " Do not wrap lines.
-set ofu=syntaxcomplete#Complete " Set omni-completion method.
+" set ofu=syntaxcomplete#Complete " Set omni-completion method.
 set report=0 " Show all changes.
 set ruler " Show the cursor position
 set scrolloff=3 " Start scrolling three lines before horizontal border of window.
@@ -129,7 +146,6 @@ set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.br
 set title " Show the filename in the window titlebar.
 set ttyfast " Send more characters at a given time.
 " set ttymouse=xterm " Set mouse type to xterm.
-set undofile " Persistent Undo.
 set visualbell " Use visual bell instead of audible bell (annnnnoying)
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
@@ -184,10 +200,6 @@ if &term == "xterm-ipad"
   inoremap <Leader><Tab> <Tab>
 endif
 
-" Paste toggle (,p)
-" set pastetoggle=<leader>p
-" map <leader>p :set invpaste paste?<CR>
-
 " Buffer navigation (,,) (,]) (,[) (,ls)
 map <Leader>, <C-^>
 " :map <Leader>] :bnext<CR>
@@ -204,12 +216,7 @@ syntax on
 
 set clipboard+=unnamed
 
-" " map keys to switch between splitted windows
-" nnoremap <unique> <S-Up> <C-W><Up>
-" nnoremap <unique> <S-Down> <C-W><Down>
-" nnoremap <unique> <S-Left> <C-W><Left>
-" nnoremap <unique> <S-Right> <C-W><Right>
-"
+
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
@@ -285,7 +292,9 @@ call plug#begin('~/.vim/plugged')
 " vim navigation https://github.com/moll/vim-node
 Plug 'moll/vim-node'
 Plug 'itchyny/lightline.vim'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
+Plug 'prettier/prettier'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'jparise/vim-graphql'
 Plug 'tfnico/vim-gradle'
@@ -364,24 +373,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'tomtom/tcomment_vim'
 
 " Plugins for javascript development
-Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'leafgarland/typescript-vim'
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['eslint']
-" disable syntax check for java
-let g:loaded_syntastic_java_javac_checker = 1
-
-" let g:syntastic_typescript_tsc_args = "--my --args --here"
-let g:syntastic_typescript_tsc_args = "-t ES5 -m commonjs --experimentalDecorators --emitDecoratorMetadata --sourceMap true --moduleResolution node"
-""" End of syntastic settings
 """}}}
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
@@ -389,8 +385,15 @@ Plug 'isRuslan/vim-es6'
 " Javascript syntax: https://github.com/othree/yajs.vim
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 
+Plug 'w0rp/ale'
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_linters = {
+\   'javascript': ['eslint', 'prettier'],
+\}
+
 Plug 'maksimr/vim-jsbeautify'
 map <s-f> :call JsBeautify()<cr>
+autocmd FileType javascript set formatprg=prettier\ --stdin
 " or
 autocmd FileType javascript noremap <buffer>  <s-f> :call JsBeautify()<cr>
 " for json
@@ -412,13 +415,11 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 
 " UltiSnips "
-"
-" Track the engine.
-Plug 'SirVer/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
+" Track the engine.
 Plug 'honza/vim-snippets'
 
+Plug 'SirVer/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -426,13 +427,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Plug 'https://github.com/tpope/vim-fugitive.git'
+" let g:UltiSnipsEditSplit="vertical"
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nnoremap <leader>nt :NERDTreeToggle<CR>
 map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
@@ -446,12 +445,22 @@ let g:NERDTreeChDirMode       = 2
 " Let nerdtree sync with opened buffer
 map <leader>r :NERDTreeFind<cr>
 
-" Navigation
-" Plug 'http://github.com/gmarik/vim-visual-star-search.git'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+let b:deoplete_ignore_sources = ['buffer']
+autocmd FileType markdown
+       \ call deoplete#custom#buffer_option('auto_complete', v:false)
+" You will also need the following for function argument completion:
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+" end of autocomplete
 
-" Plug 'MarcWeber/vim-addon-mw-utils'
-
-Plug 'Valloric/YouCompleteMe'
 Plug 'Lokaltog/vim-powerline'
 
 " Add plugins to &runtimepath
@@ -459,24 +468,11 @@ call plug#end()
 
 syntax enable
 colorscheme gruvbox
-" colorscheme solarized
-" let g:solarized_termcolors=256
-" colorscheme base16-default-dark
 set background=dark
 
 " Put the following at the end of plug
 filetype on
 filetype plugin indent on
-
-"/////////////////////////////////////////////////////////////////////////////
-" added to avoid the conflict between ycm and snipmate
-"/////////////////////////////////////////////////////////////////////////////
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-let g:ycm_complete_in_comments = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
 
 "/////////////////////////////////////////////////////////////////////////////
 " Auto Command
@@ -594,22 +590,6 @@ let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 let g:user_zen_leader_key = '<c-j>'
 
 " ------------------------------------------------------------------
-" Desc: surround
-" 'sb' for block
-" 'si' for an if statement
-" 'sw' for a with statement
-" 'sc' for a comment
-" 'sf' for a for statement
-" ------------------------------------------------------------------
-
-" DISABLE {
-" let g:surround_{char2nr("b")} = "{% block\1 \r..*\r &\1%}\r{% endblock %}"
-" let g:surround_{char2nr("i")} = "{% if\1 \r..*\r &\1%}\r{% endif %}"
-" let g:surround_{char2nr("w")} = "{% with\1 \r..*\r &\1%}\r{% endwith %}"
-" let g:surround_{char2nr("c")} = "{% comment\1 \r..*\r &\1%}\r{% endcomment %}"
-" let g:surround_{char2nr("f")} = "{% for\1 \r..*\r &\1%}\r{% endfor %}"
-" } DISABLE end
-
 au FileType vimwiki set wrap
 au FileType markdown set wrap
 

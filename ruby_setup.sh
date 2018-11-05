@@ -25,3 +25,5 @@ gem install jekyll-paginate
 gem install jekyll-gist
 
 
+# better man page
+gem install bropages

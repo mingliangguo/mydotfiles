@@ -11,6 +11,8 @@ brew tap caskroom/cask
 brew install gpg
 brew install libyaml
 brew install htop
+# easier file navigation: https://github.com/ranger/ranger
+brew install ranger
 
 
 # utils

@@ -13,6 +13,7 @@ alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
+alias w="cd ~/work"
 alias g="git"
 alias h="history"
 
@@ -164,3 +165,8 @@ alias grarun="gradle bootRun"
 # start the ssh agent, to avoid errors like - Could not open a connection to your authentication agent
 # when try to call ssh-add -k ~/.ssh/id_rsa
 alias sshagent="eval `ssh-agent -s`"
+
+# update brew
+alias bruu='brew update && brew upgrade && brew cleanup && brew cask cleanup'
+alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py  --clang-completer'
+
