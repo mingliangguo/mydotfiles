@@ -104,8 +104,9 @@ fi
 # User configuration
 
 # include some common stuffs
-source ~/.myprofile
 
+# source ~/.myprofile
+[ -f ~/.myprofile ] && source ~/.myprofile
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Compilation flags
@@ -140,10 +141,3 @@ source ~/.myprofile
 fpath=(/Users/gary/.zsh/gradle-completion $fpath)
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 
-# PM functions
-source ~/.pm/pm.zsh
-alias pma="pm add"
-alias pmg="pm go"
-alias pmrm="pm remove"
-alias pml="pm list"
-# end PM

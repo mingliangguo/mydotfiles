@@ -48,6 +48,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " map : as ;, to save key stroke
 nnoremap ; :
 
+set noswapfile " disable swap file
 set backup " make backup file and leave it around
 set undofile " Persistent Undo.
 set backupdir=~/.vim/backup//

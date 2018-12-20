@@ -53,6 +53,16 @@ mv ctrlp ~/.vim/bundle/
 cd ~
 rm -rf ~/temp/ctrlp
 
+echo "installing ack.vim"
+mkdir -p ~/temp/ack
+cd ~/temp/ack
+$SAVE_AS 1.0.9.zip https://github.com/mileszs/ack.vim/archive/1.0.9.zip
+unzip 1.0.9.zip
+mv  ack.vim-1.0.9 ack.vim
+mv ack.vim ~/.vim/bundle/
+cd ~
+rm -rf ~/temp/ack.vim
+
 echo "Adding contents to ~/.vimrc"
 echo "set nocompatible
 execute pathogen#infect()
@@ -63,15 +73,21 @@ color molokai
 set vb
 let mapleader = \",\"
 set number
+set relativenumber
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set hlsearch
+set paste
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 let NERDTreeDirArrows=0
 :nnoremap <leader>n :NERDTreeToggle<cr>
+:nnoremap <leader>r :NERDTreeFind<cr>
 \" easier window movement
 :nnoremap <C-H> <C-W>h
 :nnoremap <C-J> <C-W>j
