@@ -460,6 +460,9 @@ autocmd FileType markdown
 " You will also need the following for function argument completion:
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+" Java setting
+Plug 'artur-shaik/vim-javacomplete2'
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " end of autocomplete
 
 Plug 'Lokaltog/vim-powerline'
