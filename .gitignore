@@ -136,6 +136,7 @@ fabric.properties
 
 # temp folders
 temp/
+*.out
 
 #vagrant 
 .vagrant

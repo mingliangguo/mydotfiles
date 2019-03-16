@@ -5,7 +5,6 @@
 " Description  : My personal compilation of vimrc
 " ======================================================================================
 
-"
 " Install VimPlug if not present
 if empty(glob('~/.vim/autoload/plug.vim'))
   !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -123,12 +122,18 @@ nnoremap ? ?\v
 vnoremap ? ?\v
 " cd to the directory of th ecurrent edited buffer
 nnoremap <leader>cd :cd %:p:h<CR>
-" which replaces the word under cursor for whatever you want; after that, you can keep pressing . 
-" and it will keep substituting all the instances of the original word (ala multiple cursors). 
+" switch to the current directory
+" nmap <leader>q :execute "cd" expand("%:h")<CR>
+
+" Switch CWD to the directory of the open buffer
+" map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" which replaces the word under cursor for whatever you want; after that, you can keep pressing .
+" and it will keep substituting all the instances of the original word (ala multiple cursors).
 " You can skip them with n (as you would in a normal search). The second mapping goes the other way around: substitutes upwards.
 nnoremap c* *``cgn
 nnoremap c# #``cgN
-set mouse=a " Enable mouse in all modes.
+" set mouse=a " Enable mouse in all modes.
 set noerrorbells " Disable error bells.
 set nojoinspaces " Only insert single space after a '.', '?' and '!' with a join command.
 set nostartofline " Don't reset cursor to start of line when moving around.
@@ -244,9 +249,6 @@ au TabLeave * let g:lasttab = tabpagenr()
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
 " Move in fold
 noremap <unique> z<Up> zk
 noremap <unique> z<Down> zj
@@ -279,9 +281,6 @@ set whichwrap=b,s,<,>,[,]  " let backspace, spce, up/down arrow move to the next
 
 " folder html tags
 nnoremap <leader>ft vatzf
-
-" switch to the current directory
-nmap <leader>q :execute "cd" expand("%:h")<CR>
 
 
 " If installed using Homebrew
@@ -339,7 +338,8 @@ endif
 " end FZF -------------------------------------------------------------}}}
 
 Plug 'morhetz/gruvbox'
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim'
 
 " <C-w>f to open the file under the cursor in a new vertical split
 autocmd User Node
@@ -362,6 +362,8 @@ let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 'rw'
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
 nmap <leader>mu :CtrlPMRU<cr>
+
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'Townk/vim-autoclose'
 Plug 'vim-scripts/matchit.zip'
@@ -386,6 +388,7 @@ Plug 'isRuslan/vim-es6'
 " Javascript syntax: https://github.com/othree/yajs.vim
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 
+" Linting
 Plug 'w0rp/ale'
 " In ~/.vim/vimrc, or somewhere similar.
 let g:ale_linters = {
@@ -398,13 +401,13 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 " or
 autocmd FileType javascript noremap <buffer>  <s-f> :call JsBeautify()<cr>
 " for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+autocmd FileType json noremap <buffer> <s-f> :call JsonBeautify()<cr>
 " for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <s-f> :call JsxBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType html noremap <buffer> <s-f> :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType css noremap <buffer> <s-f> :call CSSBeautify()<cr>
 
 " End of plugins for javascript development
 "
@@ -419,14 +422,14 @@ let g:indent_guides_guide_size=1
 " Snippets are separated from the engine. Add this if you want them:
 " Track the engine.
 Plug 'honza/vim-snippets'
-
+"
 Plug 'SirVer/ultisnips'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
-
+"
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
@@ -457,9 +460,7 @@ let g:deoplete#enable_at_startup = 1
 let b:deoplete_ignore_sources = ['buffer']
 autocmd FileType markdown
        \ call deoplete#custom#buffer_option('auto_complete', v:false)
-" You will also need the following for function argument completion:
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+
 " Java setting
 Plug 'artur-shaik/vim-javacomplete2'
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -471,8 +472,15 @@ Plug 'Lokaltog/vim-powerline'
 call plug#end()
 
 syntax enable
-colorscheme gruvbox
-set background=dark
+" colorscheme gruvbox
+" colorscheme base16-default-dark
+" set background=dark
+Plug 'ayu-theme/ayu-vim' " or other package manager
+"...
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
 " Put the following at the end of plug
 filetype on

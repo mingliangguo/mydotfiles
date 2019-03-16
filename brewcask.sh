@@ -28,7 +28,7 @@ brew install python
 brew link --overwrite ruby
 brew install vim --with-override-system-vi
 brew install macvim --with-override-system-vim
-sudo brew linkapps macvim
+brew linkapps macvim
 
 # neovim
 brew install neovim/neovim/neovim

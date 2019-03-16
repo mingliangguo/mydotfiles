@@ -121,9 +121,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# enables fzf for cli (history search, etc.)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # eval $(thefuck --alias)
 
 
@@ -139,5 +136,5 @@ fi
 
 
 fpath=(/Users/gary/.zsh/gradle-completion $fpath)
-export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH:$HOME/.npm-packages/bin"
 
