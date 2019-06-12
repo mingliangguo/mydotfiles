@@ -57,3 +57,5 @@ fi
 fpath=(/Users/gary/.zsh/gradle-completion $fpath)
 export PATH="/usr/local/opt/node@8/bin:$PATH:$HOME/.npm-packages/bin"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
