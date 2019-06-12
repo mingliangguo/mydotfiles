@@ -11,11 +11,12 @@ rm ~/.gitignore
 rm ~/.tmux.conf
 rm ~/.eslintrc
 rm ~/.aliases
+mv ~/.zpreztorc ~/.zpreztorc.original
 
 cwd=${PWD} 
 ln -fs $cwd/.vimrc ~/.vimrc
 ln -fs $cwd/.gvimrc ~/.gvimrc
-ln -fs $cwd/.zshrc ~/.zshrc
+ln -fs $cwd/zprezto/.zshrc.zprezto ~/.zpreztorc
 ln -fs $cwd/.bashrc ~/.bashrc
 ln -fs $cwd/.bash_profile ~/.bash_profile
 ln -fs $cwd/.myprofile ~/.myprofile

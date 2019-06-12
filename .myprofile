@@ -27,7 +27,6 @@ fi
 
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup'
-alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py  --clang-completer'
 # allow clobber, otherwise sdkman will throw errors
 # set +o noclobber
 ## Enable vi mode in zsh
