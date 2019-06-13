@@ -9,3 +9,7 @@ pip install cheat
 pip install glances
 ln -s ./fzf_launch.sh ~/fzf_launch.sh
 
+
+# install kapitan
+pip3 install --user --upgrade kapitan
+ln -s ~/.local/bin/kapitan /usr/local/bin/kapitan

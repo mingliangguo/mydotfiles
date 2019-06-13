@@ -13,6 +13,7 @@ brew install libyaml
 brew install htop
 # easier file navigation: https://github.com/ranger/ranger
 brew install ranger
+brew install fd
 
 
 # utils
@@ -23,8 +24,8 @@ brew install tree
 brew install m-cli
 #
 # setup vim and macvim
-brew rm vim vim python macvim
-brew install python
+brew rm vim vim macvim
+brew install python3 libyaml
 brew link --overwrite ruby
 brew install vim --with-override-system-vi
 brew install macvim --with-override-system-vim
@@ -56,11 +57,12 @@ brew install httpie
 brew install icdiff
 # For quick code search => https://github.com/ggreer/the_silver_searcher
 brew install the_silver_searcher
+brew install rg
 
 # softwares
 
 # install java
-brew cask install java
+# brew cask install java
 
 # To complete the installation of Cask sogouinput, you must also run the installer at '/usr/local/Caskroom/sogouinput/3.7.0.1459/安装搜狗输入法.app'
 brew cask install alfred bettertouchtool iterm2 keyremap4macbook skype textexpander dropbox 1password  divvy bartender disk-inventory-x flux beyond-compare sogouinput dash wallpaper-wizard  flycut
@@ -70,7 +72,7 @@ brew cask install squirrel
 brew cask install intellij-idea-ce eclipse-jee  sublime-text visual-studio-code
 # install browsers
 brew cask install firefox google-chrome caskroom/versions/google-chrome-canary vivaldi chromium opera
-brew cask install vnc-viewer
+# brew cask install vnc-viewer
 brew cask install macdown
 brew cask install keepassxc
 brew cask install gas-mask

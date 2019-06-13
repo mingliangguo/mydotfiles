@@ -49,13 +49,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+fpath=(/Users/gary/.zsh/gradle-completion $fpath)
+export PATH="/usr/local/opt/node@8/bin:$PATH:$HOME/.npm-packages/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source ~/.myprofile
 [ -f ~/.myprofile ] && source ~/.myprofile
 # export MANPATH="/usr/local/man:$MANPATH"
 
-fpath=(/Users/gary/.zsh/gradle-completion $fpath)
-export PATH="/usr/local/opt/node@8/bin:$PATH:$HOME/.npm-packages/bin"
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
