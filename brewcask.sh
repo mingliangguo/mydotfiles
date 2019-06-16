@@ -86,3 +86,6 @@ brew install Caskroom/cask/virtualbox-extension-pack
 brew install Caskroom/cask/vagrant
 brew install Caskroom/cask/vagrant-manager
 
+# install fira code
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code

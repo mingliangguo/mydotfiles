@@ -52,8 +52,8 @@ export KEYTIMEOUT=1
 
 ## End of vi mode in zsh
 
-source ~/.rvm/scripts/rvm
-eval "$(rbenv init -)"
+# source ~/.rvm/scripts/rvm
+# eval "$(rbenv init -)"
 
 # fpath=($HOME/.zsh/gradle-completion $fpath)
 
