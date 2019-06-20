@@ -89,3 +89,6 @@ brew install Caskroom/cask/vagrant-manager
 # install fira code
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
+
+brew cask install istat-menus
+brew cask install daisydisk

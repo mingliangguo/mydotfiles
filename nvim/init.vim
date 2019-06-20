@@ -168,7 +168,7 @@ let g:startify_list_order = [
 " don't change vim's dir when I select a file
 let g:startify_change_to_dir = 0
 
-" Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/prettier'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
