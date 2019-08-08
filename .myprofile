@@ -82,3 +82,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # enable auto-completion for kubectl
 source <(kubectl completion zsh)
+
+# enable kube ps1, brew install kube-ps1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1

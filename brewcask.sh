@@ -14,6 +14,8 @@ brew install htop
 # easier file navigation: https://github.com/ranger/ranger
 brew install ranger
 brew install fd
+brew install kubectx
+brew install kube-ps1
 
 
 # utils

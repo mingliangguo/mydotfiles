@@ -1,17 +1,26 @@
 module.exports = {
-    "extends": "eslint:recommended",
-    "rules": {
-        // enable additional rules
-        "indent": ["error", 2],
-        "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "single"],
-        "semi": ["error", "always"],
+  extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 2017,
+  },
 
-        // override default options for rules from base configurations
-        "comma-dangle": ["error", "always"],
-        "no-cond-assign": ["error", "always"],
+  env: {
+    es6: true,
+    amd: true,
+    node: true
+  },
+  rules: {
+    // enable additional rules
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
 
-        // disable rules from base configurations
-        "no-console": "off",
-    }
-}
+    // override default options for rules from base configurations
+    'comma-dangle': ['error', 'always'],
+    'no-cond-assign': ['error', 'always'],
+
+    // disable rules from base configurations
+    'no-console': 'off',
+  },
+};

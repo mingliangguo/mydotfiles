@@ -114,6 +114,7 @@
 	precomposeunicode = false
 	editor = nvim
 	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
 
@@ -229,3 +230,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[hub]
+	host = github.ibm.com
