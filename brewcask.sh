@@ -94,3 +94,7 @@ brew cask install font-fira-code
 
 brew cask install istat-menus
 brew cask install daisydisk
+
+## install redis-cli
+brew tap ringohub/redis-cli
+brew install redis-cli
