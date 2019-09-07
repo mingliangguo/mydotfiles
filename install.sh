@@ -17,6 +17,11 @@ git clone git://github.com/eriwen/gradle-completion ~/.zsh/gradle-completion
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
+# enable auto-completion for docker
+curl -fLo ~/.zprezto/modules/completion/external/src/_docker https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
+curl -fLo ~/.zprezto/modules/completion/external/src/_docker-compose https://raw.githubusercontent.com/docker/compose/master/contrib/completion/zsh/_docker-compose
+compinit
+
 # install powerline fonts
 # git clone https://github.com/powerline/fonts.git ~/.fonts
 # . ~/.fonts/install.sh
