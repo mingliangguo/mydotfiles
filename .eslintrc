@@ -1,31 +1,32 @@
-{
-  "root": true,
-  "env": {
-    "browser": true,
-    "es6": true,
-    "mocha": true,
-    "node": true
+module.exports = {
+  extends: [
+    'eslint:recommended',
+    'plugin:prettier:recommended',
+  ],
+  plugins: [
+    "prettier"
+  ],
+  parserOptions: {
+    ecmaVersion: 2017,
   },
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "sourceType": "module"
+
+  env: {
+    es6: true,
+    amd: true,
+    node: true
   },
-  "rules": {
-    "eqeqeq": ["error", "smart"],
-    "indent": ["error", 4],
-    "no-bitwise": ["error", { "allow": ["|"] }],
-    "linebreak-style": ["error", "unix"],
-    "no-cond-assign": "off",
-    "no-console": "off",
-    "no-unexpected-multiline": "error",
-    "quotes": ["error", "single", "avoid-escape"],
-    "semi": ["error", "always"]
+  rules: {
+    // enable additional rules
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+
+    // override default options for rules from base configurations
+    'comma-dangle': ['error', 'always'],
+    'no-cond-assign': ['error', 'always'],
+
+    // disable rules from base configurations
+    'no-console': 'off',
   },
-  "globals": {
-    "expect": true,
-    "body": true,
-    "chai": true,
-    "sinon": true,
-    "riot": true
-  }
-}
+};
