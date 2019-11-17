@@ -31,7 +31,8 @@ set laststatus=2
 set ignorecase smartcase
 set lazyredraw
 set linebreak
-set list listchars=tab:.\ ,trail:.
+" set list listchars=tab:.\ ,trail:.
+set list lcs=tab:»_,trail:·
 set mouse=""
 set nowrap " Do not wrap lines.
 set nobackup
@@ -84,7 +85,7 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont=Fira\ Mono\ for\ Powerline:h14
+    set guifont=Fira\ Code:h14
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " end of settings
@@ -131,8 +132,12 @@ let g:airline_section_y = ''
 let g:airline_section_z = ''
 
 Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '│'
-let g:indentLine_char = '┆'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_color_term = 239
+
+" Background (Vim, GVim)
+let g:indentLine_bgcolor_term = 202
+
 
 Plug 'haya14busa/incsearch.vim'
 " use incsearch.vim rather than built-in
@@ -172,8 +177,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/prettier'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-Plug 'jparise/vim-graphql'
-" Plug 'tfnico/vim-gradle'
+Plug 'tfnico/vim-gradle'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
