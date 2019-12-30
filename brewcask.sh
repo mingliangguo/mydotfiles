@@ -16,7 +16,7 @@ brew install ranger
 brew install fd
 brew install kubectx
 brew install kube-ps1
-
+brew install denisidoro/tools/navi
 
 # utils
 brew install binutils

@@ -174,8 +174,9 @@ let g:startify_list_order = [
 let g:startify_change_to_dir = 0
 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'prettier/prettier'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 Plug 'tfnico/vim-gradle'
 
@@ -234,13 +235,44 @@ Plug 'tpope/vim-surround'
 "Colorch schemes {{{
 " Plug 'flazz/vim-colorschemes'
 "}}}
-Plug 'kien/ctrlp.vim'
-""" settings for ctrlp
-let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 1
-let g:ctrlp_working_path_mode = 'rw'
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
-nmap <leader>mu :CtrlPMRU<cr>
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+let g:Lf_ShortcutF = "<leader>ff"
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search visually selected text literally
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" should use `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+" Plug 'kien/ctrlp.vim'
+" """ settings for ctrlp
+" let g:ctrlp_by_filename = 1
+" let g:ctrlp_regexp = 1
+" let g:ctrlp_working_path_mode = 'rw'
+" set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
+" nmap <leader>mu :CtrlPMRU<cr>
 
 Plug 'Townk/vim-autoclose'
 Plug 'vim-scripts/matchit.zip'
@@ -249,8 +281,8 @@ Plug 'vim-scripts/matchit.zip'
 nnoremap <silent><F8> :MaximizerToggle<CR>
 vnoremap <silent><F8> :MaximizerToggle<CR>gv
 inoremap <silent><F8> <C-o>:MaximizerToggle<CR>
-Plug 'vimwiki/vimwiki'
-Plug 'tomtom/tcomment_vim'
+Plug 'vimwiki/vimwiki', { 'on': 'VimwikiUISelect' }
+Plug 'tomtom/tcomment_vim', { 'on': 'TComment'}
 
 " Plugins for javascript development
 " Plug 'leafgarland/typescript-vim'
@@ -262,10 +294,12 @@ set statusline+=%*
 " Plug 'terryma/vim-multiple-cursors'
 "
 Plug 'elzr/vim-json'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
 Plug 'isRuslan/vim-es6'
 " Javascript syntax: https://github.com/othree/yajs.vim
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
+
+Plug 'ianding1/leetcode.vim'
 
 " Linting
 Plug 'w0rp/ale'
@@ -286,7 +320,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = { 'ruby': ['rubocop'], 'javascript': ['eslint', 'prettier'] }
 let g:ale_fixers = { 'ruby': ['rubocop'], 'javascript': ['prettier'] }
 
-Plug 'http://github.com/wannesm/wmgraphviz.vim'
+Plug 'http://github.com/wannesm/wmgraphviz.vim', {'for': 'dot'}
 let g:WMGraphviz_output="png"
 
 let g:indent_guides_enable_on_vim_startup=1
@@ -328,8 +362,8 @@ autocmd FileType markdown
        \ call deoplete#custom#buffer_option('auto_complete', v:false)
 
 " Java setting
-Plug 'artur-shaik/vim-javacomplete2'
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" Plug 'artur-shaik/vim-javacomplete2'
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " end of autocomplete
 
 Plug 'mhinz/vim-signify'
