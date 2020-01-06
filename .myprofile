@@ -59,7 +59,7 @@ export KEYTIMEOUT=1
 
 export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.14
 # export CASSANDRA_HOME=$HOME/tools/apache-cassandra-3.11.3
-# export PATH=$PATH:$HOME/mybin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$GRAPHVIZ_DOT/bin:$HOME/.npm-packages/bin:$CASSANDRA_HOME/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Added for byobu
 export BYOBU_PREFIX=/usr/local
