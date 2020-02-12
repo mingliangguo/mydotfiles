@@ -11,9 +11,9 @@ eval "$(jump shell)"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 
@@ -32,7 +32,7 @@ alias bruu='brew update && brew upgrade && brew cleanup'
 ## Enable vi mode in zsh
 # https://dougblack.io/words/zsh-vi-mode.html
 
-export VISUAL='vim'
+export VISUAL='nvim'
 
 # bindkey -M viins '^r' history-incremental-search-backward
 # bindkey -M vicmd '^r' history-incremental-search-backward
@@ -82,6 +82,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # enable auto-completion for kubectl
 source <(kubectl completion zsh)
+source <(stern --completion=zsh)
 
 # enable kube ps1, brew install kube-ps1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"

@@ -383,7 +383,10 @@ map <leader>r :NERDTreeFind<cr>
 " let b:deoplete_ignore_sources = ['buffer']
 " autocmd FileType markdown
 "        \ call deoplete#custom#buffer_option('auto_complete', v:false)
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'for': ['json', 'js', 'java', 'vim', ]}
+autocmd BufNew,BufEnter *.json,*.js,*.java,*.vim execute "silent! CocEnable"
+autocmd BufLeave *.json,*.js,*.java,*.vim execute "silent! CocDisable"
+
 " Better display for messages
 set cmdheight=2
 
@@ -432,8 +435,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" " Highlight symbol under cursor on CursorHold
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
