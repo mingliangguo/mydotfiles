@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 # enable pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # integrate with [jump](https://github.com/gsamokovarov/jump)

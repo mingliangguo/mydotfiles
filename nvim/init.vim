@@ -84,7 +84,8 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont=Fira\ Code:h14
+    " set macligatures
+    " set guifont=Monaco:14
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " end of settings

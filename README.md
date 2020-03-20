@@ -2,6 +2,13 @@
 
 This is my personal configuration of dot files. 
 
+When setup a new MacOS environment. Follow the following steps:
+
+1. run `install.sh`
+2. run `mac_setup.sh` to configure the default macOS settings
+3. run `brewcask.sh` to install all of the utilities and applications
+4. follow the guide in `zprezto/README.md` about how to setup zsh
+
 ## Terminal configuration
 
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)

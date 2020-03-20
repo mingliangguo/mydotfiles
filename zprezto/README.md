@@ -21,3 +21,11 @@ done
 4. Use `.zpreztorc` to replace the default file
 
 *Note* might be helpful to do a compare and merge with upstream changes. All the original source code can be found in `.zprezto` folder.
+
+5. Completion for docker
+
+```bash
+curl -fLo ~/.zprezto/modules/completion/external/src/_docker \
+  https://raw.github.com/felixr/docker-zsh-completion/master/_docker
+exec zsh
+```

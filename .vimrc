@@ -50,6 +50,51 @@ nnoremap ; :
 set noswapfile " disable swap file
 set backup " make backup file and leave it around
 set undofile " Persistent Undo.
+
+if !isdirectory($HOME . '/.vim/backup')
+  call mkdir($HOME . '/.vim/backup')
+endif
+
+if !isdirectory($HOME . '/.vim/swap')
+  call mkdir($HOME . '/.vim/swap')
+endif
+
+if !isdirectory($HOME . '/.vim/undo')
+  call mkdir($HOME . '/.vim/undo')
+endif
+
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+
+" programming related
+set tags+=./tags,./../tags,./**/tags,tags " which tags files CTRL-] will find
+set makeef=error.err " the errorfile for :make and :grep
+
+" Redefine the shell redirection operator to receive both the stderr messages
+" and stdout messages
+set shellredir=>%s\ 2>&1
+
+set updatetime=1000 " default = 4000
+set autoread " auto read same-file change ( better for vc/vim change )
+
+" ------------------------------------------------------------------
+" Desc: Visual
+" ------------------------------------------------------------------
+
+set showmatch " show matching paren
+set matchtime=0 " 0 second to show the matching paren ( much faster )
+
+" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif"
+
+" Properly disable sound on errors on MacVim
+if has("gui_macvim")
+    autocmd GUIEnter * set vb t_vb=
+endif"
+
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
@@ -448,18 +493,7 @@ let NERDTreeWinPos=0
 let g:NERDTreeChDirMode       = 2
 " Let nerdtree sync with opened buffer
 map <leader>r :NERDTreeFind<cr>
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-let b:deoplete_ignore_sources = ['buffer']
-autocmd FileType markdown
-       \ call deoplete#custom#buffer_option('auto_complete', v:false)
+map <leader>n :NERDTree<cr>
 
 " Java setting
 Plug 'artur-shaik/vim-javacomplete2'

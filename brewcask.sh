@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # install brew first
-echo "install brew"
+#echo "install brew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install cask
-brew tap caskroom/cask
+#brew tap caskroom/cask
 
 # install gpg
 brew install gpg
@@ -25,14 +25,6 @@ brew install wget --with-iri
 brew install tree
 brew install m-cli
 #
-# setup vim and macvim
-brew rm vim vim macvim
-brew install python3 libyaml
-brew link --overwrite ruby
-brew install vim --with-override-system-vi
-brew install macvim --with-override-system-vim
-brew linkapps macvim
-
 # neovim
 brew install neovim/neovim/neovim
 
@@ -56,9 +48,8 @@ brew install jid
 brew install http-prompt
 brew install httpie
 # For better git diff display
-brew install icdiff
+brew install icdiff diff-so-fancy hub
 # For quick code search => https://github.com/ggreer/the_silver_searcher
-brew install the_silver_searcher
 brew install rg
 
 # softwares
@@ -66,14 +57,14 @@ brew install rg
 # install java
 # brew cask install java
 
-# To complete the installation of Cask sogouinput, you must also run the installer at '/usr/local/Caskroom/sogouinput/3.7.0.1459/安装搜狗输入法.app'
-brew cask install alfred bettertouchtool iterm2 keyremap4macbook skype textexpander dropbox 1password  divvy bartender disk-inventory-x flux beyond-compare sogouinput dash wallpaper-wizard  flycut
+brew cask install alfred bettertouchtool iterm2 textexpander divvy bartender disk-inventory-x flux beyond-compare dash  flycut
+brew cask install neteasemusic
 # rime input
 brew cask install squirrel
 # install IDEs
 brew cask install intellij-idea-ce eclipse-jee  sublime-text visual-studio-code
 # install browsers
-brew cask install firefox google-chrome caskroom/versions/google-chrome-canary vivaldi chromium opera
+brew cask install firefox google-chrome homebrew/cask-versions/google-chrome-canary  vivaldi chromium opera brave-browser
 # brew cask install vnc-viewer
 brew cask install macdown
 brew cask install keepassxc
@@ -99,3 +90,4 @@ brew cask install http-toolkit
 ## install redis-cli
 brew tap ringohub/redis-cli
 brew install redis-cli
+brew install stern
