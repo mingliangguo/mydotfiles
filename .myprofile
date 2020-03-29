@@ -57,8 +57,6 @@ export KEYTIMEOUT=1
 # source ~/.rvm/scripts/rvm
 # eval "$(rbenv init -)"
 
-# fpath=($HOME/.zsh/gradle-completion $fpath)
-
 export GRAPHVIZ_DOT=/usr/local/Cellar/graphviz/2.40.14
 # export CASSANDRA_HOME=$HOME/tools/apache-cassandra-3.11.3
 export PATH=$PATH:$HOME/.local/bin
@@ -85,6 +83,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # enable auto-completion for kubectl
 source <(kubectl completion zsh)
 source <(stern --completion=zsh)
+source <(navi widget zsh)
 
 # enable kube ps1, brew install kube-ps1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"

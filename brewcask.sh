@@ -50,14 +50,14 @@ brew install httpie
 # For better git diff display
 brew install icdiff diff-so-fancy hub
 # For quick code search => https://github.com/ggreer/the_silver_searcher
-brew install rg
+brew install rg tldr cheat ansible prettier
 
 # softwares
 
 # install java
 # brew cask install java
 
-brew cask install alfred bettertouchtool iterm2 textexpander divvy bartender disk-inventory-x flux beyond-compare dash  flycut
+brew cask install alfred bettertouchtool iterm2 textexpander divvy bartender disk-inventory-x flux beyond-compare dash  flycut hyper
 brew cask install neteasemusic
 # rime input
 brew cask install squirrel
