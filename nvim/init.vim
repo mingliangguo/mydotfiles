@@ -98,59 +98,19 @@ call plug#begin('~/.config/nvim/plugged')
 " vim navigation https://github.com/moll/vim-node
 Plug 'moll/vim-node'
 
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='base16'
-" " Enable the list of buffers in Airline
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-" " start counting buffers at 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-" " only show bufferline if more than 1 open buffer
-" let g:airline#extensions#tabline#buffer_min_count = 2
-let airline#extensions#tabline#tabs_label = 0
-let airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_close_button = 0
-" let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#fnamecollapse = 1
-" " use the patched font
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-  " unicode symbols
-  let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.crypt = '🔒'
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.linenr = '␊'
-  let g:airline_symbols.linenr = '␤'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.maxlinenr = '㏑'
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.spell = 'Ꞩ'
-  let g:airline_symbols.notexists = 'Ɇ'
-  let g:airline_symbols.whitespace = 'Ξ'
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.maxlinenr = ''
-  let g:airline_symbols.dirty='⚡'
-
+" vim-lightliine
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+"
 "--------------------------------------------------------------
 
 Plug 'Yggdroot/indentLine'

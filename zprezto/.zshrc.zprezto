@@ -60,3 +60,5 @@ export PATH="/usr/local/opt/node@8/bin:$PATH:$HOME/.npm-packages/bin"
 [ -f ~/.myprofile ] && source ~/.myprofile
 # export MANPATH="/usr/local/man:$MANPATH"
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

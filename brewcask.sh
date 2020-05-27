@@ -91,3 +91,8 @@ brew cask install http-toolkit
 brew tap ringohub/redis-cli
 brew install redis-cli
 brew install stern
+
+## Install openjdk-j9, refer to: https://github.com/AdoptOpenJDK/homebrew-openjdk
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk11-openj9
+brew cask install adoptopenjdk14-openj9
