@@ -168,5 +168,4 @@ alias sshagent="eval `ssh-agent -s`"
 
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup'
-alias ycmBuild='pushd . && ~/.vim/plugged/YouCompleteMe/install.py  --clang-completer'
 

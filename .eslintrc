@@ -1,4 +1,4 @@
-module.exports = {
+{
   extends: [
     'eslint:recommended',
     'plugin:prettier:recommended',
@@ -29,4 +29,4 @@ module.exports = {
     // disable rules from base configurations
     'no-console': 'off',
   },
-};
+}

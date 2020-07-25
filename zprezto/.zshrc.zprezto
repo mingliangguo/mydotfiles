@@ -51,14 +51,9 @@ fi
 
 ZSH_DISABLE_COMPFIX="true"
 
-fpath=(/Users/gary/.zsh/gradle-completion $fpath)
-export PATH="/usr/local/opt/node@8/bin:$PATH:$HOME/.npm-packages/bin"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # source ~/.myprofile
 [ -f ~/.myprofile ] && source ~/.myprofile
-# export MANPATH="/usr/local/man:$MANPATH"
 
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

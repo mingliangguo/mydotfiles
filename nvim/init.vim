@@ -47,7 +47,6 @@ set showcmd
 set showtabline=1
 set smarttab
 set tags=./tags;,tags
-set termguicolors
 set title
 set wildmenu
 set wildmode=list:longest,full
@@ -120,6 +119,10 @@ let g:indentLine_color_term = 239
 " Background (Vim, GVim)
 let g:indentLine_bgcolor_term = 202
 
+"--------------------------------------------------------------
+" firenvim
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+"--------------------------------------------------------------
 
 Plug 'haya14busa/incsearch.vim'
 " use incsearch.vim rather than built-in
@@ -275,6 +278,7 @@ set statusline+=%*
 """}}}
 " Plug 'terryma/vim-multiple-cursors'
 "
+Plug 'google/vim-jsonnet'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
 Plug 'isRuslan/vim-es6'
