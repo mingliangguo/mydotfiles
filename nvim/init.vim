@@ -31,7 +31,6 @@ set laststatus=2
 set ignorecase smartcase
 set lazyredraw
 set linebreak
-" set list listchars=tab:.\ ,trail:.
 set list lcs=tab:»_,trail:·
 set mouse=""
 set nowrap " Do not wrap lines.
@@ -110,14 +109,6 @@ let g:lightline = {
       \ },
       \ }
 "
-"--------------------------------------------------------------
-
-Plug 'Yggdroot/indentLine'
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_color_term = 239
-
-" Background (Vim, GVim)
-let g:indentLine_bgcolor_term = 202
 
 "--------------------------------------------------------------
 " firenvim
