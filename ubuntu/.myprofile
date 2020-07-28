@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+# enable pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+
+# Fix for 'Could not open a connection to your authentication agent.'
+# eval `ssh-agent -s`
+
+# My own alias
+## Enable vi mode in zsh
+# https://dougblack.io/words/zsh-vi-mode.html
+export VISUAL='nvim'
+
+# bindkey -M viins '^r' history-incremental-search-backward
+# bindkey -M vicmd '^r' history-incremental-search-backward
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+bindkey -v
+#
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+
+## End of vi mode in zsh
+
+# source ~/.rvm/scripts/rvm
+# eval "$(rbenv init -)"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin:/snap/bin"
+
+# Added for byobu
+export BYOBU_PREFIX=/usr/local
+export BYOBU_PYTHON=$HOME/.pyenv/shims/python3
+
+# cheat settings
+export CHEATCOLORS=true
+export GOPATH=$HOME/gopath
+
+source ~/.aliases
+
+[[ -s "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# enable kube ps1, brew install kube-ps1
+[[ -s "$HOME/.kube-ps1/kube-ps1.sh" ]] && source "$HOME/.kube-ps1/kube-ps1.sh" && PS1='$(kube_ps1)'$PS1
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+# enables fzf for cli (history search, etc.)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.workrc ] && source  ~/.workrc
+
+# enable auto-completion for kubectl
+source <(kubectl completion zsh)
+source <(stern --completion=zsh)
+
