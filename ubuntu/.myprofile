@@ -73,3 +73,12 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 source <(kubectl completion zsh)
 source <(stern --completion=zsh)
 
+unset BYOBU_PREFIX
+unalias sudo
+
+alias git_current_branch="git rev-parse --abbrev-ref HEAD"
+alias grbm2="git fetch upstream && git rebase upstream/master-p2"
+alias gl="git log --graph --abbrev-commit --date-order --format=format:'%Cblue%h%Creset%C(bold red)%d%Creset %s <%an> %Cgreen(%ar)%Creset' --all"
+alias gpo='git push origin $(git_current_branch)'
+alias gpl='git fetch && git pull origin $(git_current_branch)'
+
