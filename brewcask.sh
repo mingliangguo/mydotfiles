@@ -18,6 +18,8 @@ brew install kubectx
 brew install kube-ps1
 brew install denisidoro/tools/navi
 
+brew tap muesli/tap && brew install duf
+
 # utils
 brew install binutils
 brew install cmake

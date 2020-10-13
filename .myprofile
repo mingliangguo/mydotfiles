@@ -3,7 +3,7 @@
 # enable pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
 # integrate with [jump](https://github.com/gsamokovarov/jump)
 eval "$(jump shell)"
@@ -22,15 +22,13 @@ fi
 # Fix for 'Could not open a connection to your authentication agent.'
 # eval `ssh-agent -s`
 
+export VISUAL='nvim'
+
 # My own alias
-# update brew
-alias bruu='brew update && brew upgrade && brew cleanup'
 # allow clobber, otherwise sdkman will throw errors
 # set +o noclobber
 ## Enable vi mode in zsh
 # https://dougblack.io/words/zsh-vi-mode.html
-
-export VISUAL='nvim'
 
 # bindkey -M viins '^r' history-incremental-search-backward
 # bindkey -M vicmd '^r' history-incremental-search-backward
@@ -71,7 +69,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # enables fzf for cli (history search, etc.)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.workrc ] && source  ~/.workrc
 
 # enable auto-completion for kubectl
@@ -83,4 +80,3 @@ source <(navi widget zsh)
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
