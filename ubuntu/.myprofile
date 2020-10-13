@@ -45,7 +45,7 @@ export KEYTIMEOUT=1
 # source ~/.rvm/scripts/rvm
 # eval "$(rbenv init -)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin:/snap/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin:/snap/bin:/usr/local/kubebuilder/bin"
 
 # Added for byobu
 export BYOBU_PREFIX=/usr/local
@@ -81,4 +81,6 @@ alias grbm2="git fetch upstream && git rebase upstream/master-p2"
 alias gl="git log --graph --abbrev-commit --date-order --format=format:'%Cblue%h%Creset%C(bold red)%d%Creset %s <%an> %Cgreen(%ar)%Creset' --all"
 alias gpo='git push origin $(git_current_branch)'
 alias gpl='git fetch && git pull origin $(git_current_branch)'
+alias k=kubectl
+alias ic=ibmcloud
 

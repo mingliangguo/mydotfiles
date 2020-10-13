@@ -25,6 +25,7 @@ set tabstop=2
 set shiftwidth=0 " Always have the same value with `tabstop`
 set softtabstop=-1 " Always have the same value with `shiftwidth`
 set hidden
+set paste
 set history=500
 set incsearch hlsearch ignorecase smartcase
 set laststatus=2
@@ -339,9 +340,9 @@ map <leader>r :NERDTreeFind<cr>
 " let b:deoplete_ignore_sources = ['buffer']
 " autocmd FileType markdown
 "        \ call deoplete#custom#buffer_option('auto_complete', v:false)
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'for': ['json', 'js', 'java', 'vim', ]}
-autocmd BufNew,BufEnter *.json,*.js,*.java,*.vim execute "silent! CocEnable"
-autocmd BufLeave *.json,*.js,*.java,*.vim execute "silent! CocDisable"
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'for': ['json', 'js', 'java', 'vim', 'go' ]}
+autocmd BufNew,BufEnter *.json,*.js,*.java,*.vim,*.go execute "silent! CocEnable"
+autocmd BufLeave *.json,*.js,*.java,*.vim,*.go execute "silent! CocDisable"
 
 " Better display for messages
 set cmdheight=2
