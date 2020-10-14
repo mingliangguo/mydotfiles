@@ -18,5 +18,6 @@ ln -fs $cwd/../.gitconfig ~/.gitconfig
 ln -fs $cwd/../.gitignore ~/.gitignore
 ln -fs $cwd/../.eslintrc ~/.eslintrc
 ln -fs $cwd/../.aliases ~/.aliases
+ln -fs $cwd/../nvim/init.vim ~/.config/nvim/
 ln -fs $cwd/.myprofile ~/.myprofile
 ln -fs $cwd/.zshrc ~/.zshrc
