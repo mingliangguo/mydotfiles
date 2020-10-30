@@ -74,18 +74,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# include some common stuffs
-source ~/.myprofile
-
-
-
-# eval $(thefuck --alias)
-
 
 # enable gradle auto-completion.
 # zstyle ':completion:*' use-cache on
@@ -99,10 +87,9 @@ source ~/.myprofile
 
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# include some common stuffs
+source ~/.myprofile

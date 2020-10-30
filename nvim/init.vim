@@ -7,7 +7,7 @@ endif
 let mapleader = ','
 
 " Faster loading
-" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/home/gary/.pyenv/shims/python3'
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
 "
@@ -25,7 +25,7 @@ set tabstop=2
 set shiftwidth=0 " Always have the same value with `tabstop`
 set softtabstop=-1 " Always have the same value with `shiftwidth`
 set hidden
-set paste
+" set paste
 set history=500
 set incsearch hlsearch ignorecase smartcase
 set laststatus=2

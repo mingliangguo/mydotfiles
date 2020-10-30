@@ -11,6 +11,8 @@
 [[ -s ~/.zshrc ]] && mv ~/.zshrc ~/.zshrc.original
 
 cwd=${PWD}
+mkdir -p $HOME/.config/nvim/
+
 ln -fs $cwd/../.vimrc ~/.vimrc
 ln -fs $cwd/../.bashrc ~/.bashrc
 ln -fs $cwd/../.bash_profile ~/.bash_profile
