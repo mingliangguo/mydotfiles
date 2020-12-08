@@ -31,10 +31,13 @@ brew install m-cli
 brew install neovim/neovim/neovim
 
 # for [jump](https://github.com/gsamokovarov/jump)
-brew install jump
+brew install autojump
 brew install tmux
 brew install reattach-to-user-namespace
 brew install fzf
+
+# Install python
+brew install pyenv-virtualenv
 
 # facebook path picker
 brew install fpp

@@ -45,6 +45,7 @@ ENABLE_CORRECTION="true"
 # plugins=(git vi-mode colored-man colorize github vagrant brew mvn gradle Forklift httpie node npm pip python ruby rvm screen tmux osx zsh-syntax-highlighting)
 
 # source zprezto
+#
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -53,3 +54,18 @@ ZSH_DISABLE_COMPFIX="true"
 
 # source ~/.myprofile
 [ -f ~/.myprofile ] && source ~/.myprofile
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/gary/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/gary/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/gary/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/gary/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

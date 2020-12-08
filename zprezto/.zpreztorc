@@ -43,7 +43,9 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'syntax-highlighting' \
   'autosuggestions' \
+  'zsh-interactive-cd' \
   'history-substring-search' \
+  'conda-zsh-completion' \
   'prompt'
 #
 # Autosuggestions
@@ -230,3 +232,8 @@ zstyle ':prezto:module:prompt' show-return-val 'yes'
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
+#
+# Conda
+# To display global environments first, add the following to your '.zshrc':
+#
+   zstyle ":conda_zsh_completion:*" show-global-envs-first true

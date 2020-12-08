@@ -11,11 +11,13 @@ sudo xcodebuild -license
 # git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 # install the interactive cd plugin
-git clone https://github.com/changyuheng/zsh-interactive-cd.git ~/.zsh/zsh-interactive-cd/
+git clone https://github.com/changyuheng/zsh-interactive-cd.git ~/.zprezto/modules/zsh-interactive-cd/
 # install gradle plugin
-git clone git://github.com/eriwen/gradle-completion ~/.zsh/gradle-completion
+git clone git://github.com/eriwen/gradle-completion ~/.zprezto/modules/gradle-completion
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zprezto/modules/zsh-syntax-highlighting
+
+git clone https://github.com/esc/conda-zsh-completion  ~/.zprezto/modules/conda-zsh-completion
 
 # enable auto-completion for docker
 curl -fLo ~/.zprezto/modules/completion/external/src/_docker https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker
