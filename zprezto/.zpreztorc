@@ -37,14 +37,14 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'homebrew' \
   'osx' \
-  'ruby' \
   'git' \
-  'conda-zsh-completion' \
   'syntax-highlighting' \
   'autosuggestions' \
   'zsh-interactive-cd' \
   'history-substring-search' \
   'prompt'
+#  'conda-zsh-completion' \
+#  'ruby' \
 #
 # Autosuggestions
 #

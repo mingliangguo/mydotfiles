@@ -4,10 +4,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall
 endif
 
+" set env for embedded neovim, e.g. firenvim
+let $LANG="en_US.UTF-8"
+let $LC_CTYPE="en.US.UTF-8"
+
 let mapleader = ','
 
 " Faster loading
-let g:python3_host_prog = '/home/gary/.pyenv/shims/python3'
+let g:python3_host_prog = '~/.pyenv/shims/python3'
+" let g:python3_host_prog = '/Applications/Xcode.app/Contents/Developer/usr/bin/python3'
 " let g:python_host_prog = '/usr/local/bin/python'
 " let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
 "

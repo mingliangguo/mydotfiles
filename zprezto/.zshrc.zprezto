@@ -1,6 +1,10 @@
 # set term color
 export TERM="xterm-256color"
 
+# You may need to manually set your language environment for python3
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en.US.UTF-8"
+
 # unset nomatch otherwise rake task can not take parameters
 unsetopt nomatch
 
@@ -107,20 +111,7 @@ setopt RC_EXPAND_PARAM
 
 ###############################################################################
 # Start of my personal config
+
 # source ~/.myprofile
 [ -f ~/.myprofile ] && source ~/.myprofile
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/gary/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/gary/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/gary/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/gary/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<

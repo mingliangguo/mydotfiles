@@ -8,9 +8,6 @@ eval "$(pyenv init -)"
 # integrate with [jump](https://github.com/gsamokovarov/jump)
 eval "$(jump shell)"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -72,11 +69,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [ -f ~/.workrc ] && source  ~/.workrc
 
 # enable auto-completion for kubectl
-source <(kubectl completion zsh)
-source <(stern --completion=zsh)
-source <(navi widget zsh)
+# source <(kubectl completion zsh)
+# source <(stern --completion=zsh)
+# source <(navi widget zsh)
 
-# enable kube ps1, brew install kube-ps1
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
 
