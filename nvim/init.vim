@@ -20,6 +20,11 @@ let g:python3_host_prog = '~/.pyenv/shims/python3'
 " General settings (see :h vim-differences)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
+set fileencodings=ucs-bom,utf-8,gb18030,utf-16le,big5,euc-jp,euc-kr,latin1
+" https://superuser.com/questions/302186/vim-scrolls-very-slowly-when-a-line-is-too-long
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=500
+
 set autoindent
 set autoread
 set clipboard=unnamedplus
@@ -69,7 +74,7 @@ set complete+=k
 autocmd FileType mail setlocal spell spelllang=en_us
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set filetype=markdown
-autocmd FileType markdown set spell spelllang=en_us
+autocmd FileType markdown set spell spelllang=en_us noexpandtab
 autocmd FileType json set conceallevel=0
 
 " set spell or set nospell
@@ -155,6 +160,7 @@ let g:startify_list_order = [
 " don't change vim's dir when I select a file
 let g:startify_change_to_dir = 0
 
+Plug 'godlygeek/tabular'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',

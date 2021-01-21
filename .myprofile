@@ -8,18 +8,14 @@ eval "$(pyenv init -)"
 # integrate with [jump](https://github.com/gsamokovarov/jump)
 eval "$(jump shell)"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
-
-
 # Fix for 'Could not open a connection to your authentication agent.'
 # eval `ssh-agent -s`
-
-export VISUAL='nvim'
+if [[ "$(command -v nvim)" ]]; then
+    export EDITOR='nvim'
+    export MANPAGER='nvim +Man!'
+    export MANWIDTH=999
+    export VISUAL='nvim'
+fi
 
 # My own alias
 # allow clobber, otherwise sdkman will throw errors
