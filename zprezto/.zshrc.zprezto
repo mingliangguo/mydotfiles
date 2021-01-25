@@ -116,3 +116,5 @@ setopt RC_EXPAND_PARAM
 # source ~/.myprofile
 [ -f ~/.myprofile ] && source ~/.myprofile
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

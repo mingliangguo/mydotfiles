@@ -19,6 +19,10 @@ let g:python3_host_prog = '~/.pyenv/shims/python3'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings (see :h vim-differences)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 filetype plugin indent on
 set fileencodings=ucs-bom,utf-8,gb18030,utf-16le,big5,euc-jp,euc-kr,latin1
 " https://superuser.com/questions/302186/vim-scrolls-very-slowly-when-a-line-is-too-long
@@ -206,8 +210,10 @@ endif
 
 " end FZF -------------------------------------------------------------}}}
 
-Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
+" Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ayu-theme/ayu-vim'
+" Plug 'embark-theme/vim', { 'as': 'embark' }
 " Plug 'dracula/vim'
 
 " <C-w>f to open the file under the cursor in a new vertical split
@@ -442,10 +448,6 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
-" Set Colorscheme after plugins loaded
-colorscheme gruvbox
-" colorscheme base16-default-dark
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End of plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -470,6 +472,16 @@ map <silent> <leader>qs <Esc>:noh<CR>
 if !exists("g:syntax_on")
   syntax enable
 endif
+
+" Set Colorscheme after plugins loaded
+" colorscheme gruvbox
+" set background=light
+colorscheme PaperColor
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+" colorscheme embark
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
