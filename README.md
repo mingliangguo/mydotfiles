@@ -8,6 +8,8 @@ When setup a new MacOS environment. Follow the following steps:
 2. run `mac_setup.sh` to configure the default macOS settings
 3. run `brewcask.sh` to install all of the utilities and applications
 4. follow the guide in `zprezto/README.md` about how to setup zsh
+5. Install squirrel input:
+	- [Install and configure Squirrel](https://www.dreamxu.com/install-config-squirrel/)
 
 ## Terminal configuration
 

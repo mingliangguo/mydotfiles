@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # install brew first
-#echo "install brew"
+echo "install brew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# install cask
-#brew tap caskroom/cask
+# install
+#brew tap room/cask
 
 # install gpg
 brew install gpg
 brew install libyaml
-brew install htop
+brew install htop bat prettyping
 # easier file navigation: https://github.com/ranger/ranger
 brew install ranger
 brew install fd
@@ -26,18 +26,19 @@ brew install cmake
 brew install wget --with-iri
 brew install tree
 brew install m-cli
+brew install watch
 #
 # neovim
 brew install neovim/neovim/neovim
 
 # for [jump](https://github.com/gsamokovarov/jump)
-brew install autojump
-brew install tmux
+brew install jump
+brew install tmux byobu
 brew install reattach-to-user-namespace
 brew install fzf
 
 # Install python
-brew install pyenv-virtualenv
+brew install pyenv pyenv-virtualenv
 
 # facebook path picker
 brew install fpp
@@ -59,45 +60,45 @@ brew install rg tldr cheat ansible prettier
 
 # softwares
 
-# install java
-# brew cask install java
-
-brew cask install alfred bettertouchtool iterm2 textexpander divvy bartender disk-inventory-x flux beyond-compare dash  flycut hyper
-brew cask install neteasemusic
+brew install --cask alfred bettertouchtool iterm2 textexpander divvy bartender disk-inventory-x flux beyond-compare dash flycut hyper terminus
 # rime input
-brew cask install squirrel
+brew  install --cask squirrel
 # install IDEs
-brew cask install intellij-idea-ce eclipse-jee  sublime-text visual-studio-code
+brew install --cask intellij-idea-ce sublime-text visual-studio-code
 # install browsers
-brew cask install firefox google-chrome homebrew/cask-versions/google-chrome-canary  vivaldi chromium opera brave-browser
-# brew cask install vnc-viewer
-brew cask install macdown
-brew cask install keepassxc
-brew cask install gas-mask
-brew cask install itsycal
-brew cask install shortcat
+brew install --cask firefox google-chrome vivaldi chromium opera brave-browser microsoft-edge brave-browser
+# brew  install vnc-viewer
+brew install --cask macdown
+brew install --cask keepassxc
+brew install --cask gas-mask
+brew install --cask itsycal
+brew install --cask shortcat
+brew install --cask karabiner-elements
 
 # vagrant and virtual box
 # https://gist.github.com/tbonesteaks/000dc2d0584f30013913
-brew cask install virtualbox
-brew install Caskroom/cask/virtualbox-extension-pack
-brew install Caskroom/cask/vagrant
-brew install Caskroom/cask/vagrant-manager
+brew install --cask virtualbox
+brew install --cask room/cask/virtualbox-extension-pack
+brew install --cask room/cask/vagrant
+brew install --cask room/cask/vagrant-manager
 
 # install fira code
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
-brew cask install istat-menus
-brew cask install daisydisk
-brew cask install http-toolkit
+brew install --cask istat-menus
+brew install --cask daisydisk
+brew install http-toolkit
 
 ## install redis-cli
-brew tap ringohub/redis-cli
-brew install redis-cli
+# brew tap ringohub/redis-cli
+# brew install redis-cli
 brew install stern
+brew install mkdocs
+pip install mkdocs-material
 
 ## Install openjdk-j9, refer to: https://github.com/AdoptOpenJDK/homebrew-openjdk
+
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk11-openj9
-brew cask install adoptopenjdk14-openj9
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+brew install --cask adoptopenjdk11-openj9

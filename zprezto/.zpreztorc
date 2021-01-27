@@ -40,9 +40,9 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'syntax-highlighting' \
   'autosuggestions' \
-  'zsh-interactive-cd' \
   'history-substring-search' \
   'prompt'
+  # 'zsh-interactive-cd' \
 #  'conda-zsh-completion' \
 #  'ruby' \
 #

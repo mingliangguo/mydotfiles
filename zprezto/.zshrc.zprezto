@@ -115,6 +115,7 @@ setopt RC_EXPAND_PARAM
 
 # source ~/.myprofile
 [ -f ~/.myprofile ] && source ~/.myprofile
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Ref to: https://stackoverflow.com/questions/49722724/getting-no-such-file-or-directory-when-executing-any-terminal-command-caused
+export PATH=${PATH//VMware\ F/VMware\\ F}

@@ -63,7 +63,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # enables fzf for cli (history search, etc.)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.workrc ] && source  ~/.workrc
-[ -f ~/.fyrerc ] && source  ~/.fyrerc
 
 # enable auto-completion for kubectl
 source <(kubectl completion zsh)

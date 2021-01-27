@@ -12,6 +12,8 @@
 [[ -s ~/.zshrc ]] && mv ~/.zshrc ~/.zshrc.original
 
 mkdir -p ~/.config/nvim/
+mkdir -p ~/.config/alacritty/
+mkdir -p ~/.config/kitty/
 
 cwd=${PWD}
 ln -fs $cwd/.vimrc ~/.vimrc
@@ -27,3 +29,5 @@ ln -fs $cwd/.tmux.conf ~/.tmux.conf
 ln -fs $cwd/.eslintrc ~/.eslintrc
 ln -fs $cwd/.aliases ~/.aliases
 ln -fs $cwd/nvim/init.vim ~/.config/nvim/
+ln -fs $cwd/alacritty.yaml ~/.config/alacritty/
+ln -fs $cwd/kitty.yaml ~/.config/alacritty/

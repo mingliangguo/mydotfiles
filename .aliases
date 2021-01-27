@@ -166,6 +166,73 @@ alias grarun="gradle bootRun"
 # when try to call ssh-add -k ~/.ssh/id_rsa
 alias sshagent="eval `ssh-agent -s`"
 
+if [ -x "$(command -v bat)" ]; then
+  alias cat=bat
+elif [ -x "$(command -v batcat)" ]; then
+  alias cat=batcat
+fi
+
+
+command -v nvim > /dev/null && alias vim=/usr/local/bin/nvim
+command -v kubens > /dev/null && alias kns=kubens
+command -v kubectl > /dev/null && alias k=kubectl
+
+command -v byobu > /dev/null && alias bb="byobu"
+
+# Git related alias
+alias git_current_branch="git rev-parse --abbrev-ref HEAD"
+alias grbm2="git fetch upstream && git rebase upstream/master-p2"
+alias gl="git log --graph --abbrev-commit --date-order --format=format:'%Cblue%h%Creset%C(bold red)%d%Creset %s <%an> %Cgreen(%ar)%Creset' --all"
+alias gpo='git push origin $(git_current_branch)'
+alias gpf='git push -f origin $(git_current_branch)'
+alias gpl='git fetch && git pull origin $(git_current_branch)'
+
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup'
 
+# https://github.com/AdoptOpenJDK/homebrew-openjdk
+# Usage:
+#  jdk 1.8
+#  jdk 9
+#  jdk 11
+#  jdk 13
+jdk() {
+  version=$1
+  export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+  java -version
+}
+
+kv() {
+  command -v kubectl > /dev/null && source <(kubectl completion zsh)
+  command -v stern > /dev/null && source <(stern --completion=zsh)
+
+  # enable kube ps1, brew install kube-ps1
+  if [ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]; then
+    source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+    PS1='$(kube_ps1)'$PS1
+  fi
+}
+
+nvmenv() {
+  # The following NVM bash_completion is super slow
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && . "$NVM_DIR/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+}
+
+conenv() {
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "~/miniconda3/etc/profile.d/conda.sh" ]; then
+          . "~/miniconda3/etc/profile.d/conda.sh"
+      else
+          export PATH="~/miniconda3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+}

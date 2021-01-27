@@ -11,10 +11,7 @@ let $LC_CTYPE="en.US.UTF-8"
 let mapleader = ','
 
 " Faster loading
-let g:python3_host_prog = '~/.pyenv/shims/python3'
-" let g:python3_host_prog = '/Applications/Xcode.app/Contents/Developer/usr/bin/python3'
-" let g:python_host_prog = '/usr/local/bin/python'
-" let g:ruby_host_prog = 'rvm system do neovim-ruby-host'
+" let g:python3_host_prog = '~/.pyenv/shims/python3'
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings (see :h vim-differences)
@@ -97,8 +94,6 @@ if has("gui_running")
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
-    " set macligatures
-    " set guifont=Monaco:14
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " end of settings

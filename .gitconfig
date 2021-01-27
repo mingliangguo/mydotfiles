@@ -193,9 +193,11 @@
 
 	insteadOf = "gist:"
 [user]
-	name = Gary Guo
-	# email = mingliangguo@gmail.com
-	email = gary.guo@ibm.com
+	name = Mingliang Guo
+	email = mail@mingliang.me
+
+[includeIf "gitdir:~/Work/"]
+    path = ~/work/.gitconfig
 
 [alias]
   showtool = "!f() { git difftool $1^ $1; }; f"
@@ -219,12 +221,6 @@
 [difftool "icdiff"]
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Users/gary/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [mergetool]
 	bc3 = trustExitCode
 [pager]
