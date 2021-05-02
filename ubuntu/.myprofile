@@ -40,7 +40,7 @@ export KEYTIMEOUT=1
 # source ~/.rvm/scripts/rvm
 # eval "$(rbenv init -)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin:/snap/bin:/usr/local/kubebuilder/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin:/snap/bin:/usr/local/kubebuilder/bin:/opt/mssql-tools/bin/"
 
 # Added for byobu
 export BYOBU_PREFIX=/usr/local

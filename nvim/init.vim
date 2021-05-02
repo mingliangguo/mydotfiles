@@ -283,6 +283,7 @@ set statusline+=%*
 " Plug 'terryma/vim-multiple-cursors'
 "
 Plug 'google/vim-jsonnet'
+Plug 'udalov/kotlin-vim'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css']}
 Plug 'isRuslan/vim-es6'

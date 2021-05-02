@@ -58,7 +58,7 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git vi-mode colorize github vagrant mvn gradle autojump node npm yarn pip python ruby rvm tmux zsh-syntax-highlighting zsh-autosuggestions ssh-agent)
 
-zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_github
+zstyle :omz:plugins:ssh-agent identities id_rsa
 
 source $ZSH/oh-my-zsh.sh
 
