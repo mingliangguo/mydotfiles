@@ -233,3 +233,6 @@
   required = true
 [hub]
   host = github.ibm.com
+[http]
+	sslCAinfo = /etc/ssl/certs/ca-certificates.crt
+	sslverify = false

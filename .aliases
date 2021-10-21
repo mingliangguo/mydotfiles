@@ -168,8 +168,6 @@ alias sshagent="eval `ssh-agent -s`"
 
 if [ -x "$(command -v bat)" ]; then
   alias cat=bat
-elif [ -x "$(command -v batcat)" ]; then
-  alias cat=batcat
 fi
 
 
