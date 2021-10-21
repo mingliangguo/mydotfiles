@@ -124,3 +124,6 @@ setopt EXTENDED_HISTORY  # record command start time
 
 # Ref to: https://stackoverflow.com/questions/49722724/getting-no-such-file-or-directory-when-executing-any-terminal-command-caused
 export PATH=${PATH//VMware\ F/VMware\\ F}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

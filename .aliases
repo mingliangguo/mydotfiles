@@ -220,6 +220,10 @@ nvmenv() {
   [ -s "$NVM_DIR/etc/bash_completion.d/nvm" ] && . "$NVM_DIR/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 }
 
+minikb() {
+  eval $(minikube docker-env)
+}
+
 conenv() {
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!

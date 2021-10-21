@@ -2,8 +2,8 @@
 
 # enable pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # integrate with [jump](https://github.com/gsamokovarov/jump)
 eval "$(jump shell)"
