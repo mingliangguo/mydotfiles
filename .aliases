@@ -224,6 +224,10 @@ minikb() {
   eval $(minikube docker-env)
 }
 
+pv() {
+  eval "$(pyenv init - --no-rehash)"
+}
+
 conenv() {
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!

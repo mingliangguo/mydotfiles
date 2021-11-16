@@ -5,9 +5,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
 eval "$(pyenv init --path)"
 
-# integrate with [jump](https://github.com/gsamokovarov/jump)
-eval "$(jump shell)"
-
 # Fix for 'Could not open a connection to your authentication agent.'
 # eval `ssh-agent -s`
 if [[ "$(command -v nvim)" ]]; then
@@ -55,3 +52,4 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 # work specific settings
 [ -f ~/.workrc ] && source  ~/.workrc
+

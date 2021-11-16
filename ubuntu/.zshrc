@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
+ZSH_THEME="afowler"
 #
 
 # The following two lines are only required by certain themes, e.g. pure or pygmalion
@@ -58,7 +58,7 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git vi-mode colorize github vagrant mvn gradle autojump node npm yarn pip python ruby rvm tmux zsh-syntax-highlighting zsh-autosuggestions ssh-agent)
 
-zstyle :omz:plugins:ssh-agent identities id_ed25519
+zstyle :omz:plugins:ssh-agent identities id_rsa
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,7 +91,7 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/.myprofile ] && source ~/.myprofile
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# include some common stuffs
-source ~/.myprofile
