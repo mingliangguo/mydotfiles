@@ -36,8 +36,8 @@ export KEYTIMEOUT=1
 ## End of vi mode in zsh
 
 # Added for byobu
-export BYOBU_PREFIX=/usr/local
-export BYOBU_PYTHON=$HOME/.pyenv/shims/python3
+#export BYOBU_PREFIX=/usr/local
+#export BYOBU_PYTHON=$HOME/.pyenv/shims/python3
 
 # cheat settings
 export CHEATCOLORS=true
