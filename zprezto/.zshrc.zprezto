@@ -122,8 +122,10 @@ setopt EXTENDED_HISTORY  # record command start time
 [ -f ~/.myprofile ] && source ~/.myprofile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Ref to: https://stackoverflow.com/questions/49722724/getting-no-such-file-or-directory-when-executing-any-terminal-command-caused
-export PATH=${PATH//VMware\ F/VMware\\ F}
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# integrate with [jump](https://github.com/gsamokovarov/jump)
+if [ -x "$(command -v jump)" ]; then
+  eval "$(jump shell)"
+fi
 
