@@ -26,6 +26,8 @@ set fileencodings=ucs-bom,utf-8,gb18030,utf-16le,big5,euc-jp,euc-kr,latin1
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=500
 
+set diffopt+=internal
+set diffopt+=algorithm:histogram
 set autoindent
 set autoread
 set clipboard=unnamedplus

@@ -74,6 +74,7 @@ brew install --cask gas-mask
 brew install --cask itsycal
 brew install --cask shortcat
 brew install --cask karabiner-elements
+brew install balenaetcher
 
 # vagrant and virtual box
 # https://gist.github.com/tbonesteaks/000dc2d0584f30013913
