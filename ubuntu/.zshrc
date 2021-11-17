@@ -93,6 +93,6 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.myprofile ] && source ~/.myprofile
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
