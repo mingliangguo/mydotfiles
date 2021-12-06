@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="afowler"
+ZSH_THEME="sorin"
 
 # The following two lines are only required by certain themes, e.g. pure or pygmalion
 # prompt_context () { }
@@ -70,5 +70,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.myprofile ] && source ~/.myprofile
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

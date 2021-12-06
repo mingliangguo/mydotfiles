@@ -190,6 +190,8 @@ alias gpl='git fetch && git pull origin $(git_current_branch)'
 # update brew
 alias bruu='brew update && brew upgrade && brew cleanup'
 
+alias jdui='java -jar /Applications/JD-GUI.app/Contents/Resources/Java/jd-gui-1.6.6-min.jar'
+
 # https://github.com/AdoptOpenJDK/homebrew-openjdk
 # Usage:
 #  jdk 1.8
