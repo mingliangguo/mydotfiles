@@ -213,6 +213,11 @@ kv() {
     source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
     PS1='$(kube_ps1)'$PS1
   fi
+
+  if [ -f "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh" ]; then
+    source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
+    PS1='$(kube_ps1)'$PS1
+  fi
 }
 
 nvmenv() {
