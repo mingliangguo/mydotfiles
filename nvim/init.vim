@@ -518,18 +518,20 @@ noremap <silent> gb :Gblame<CR>
 noremap <silent> ghub :Gbrowse<CR>
 
 " Set clipboard provider to pbcopy for MacOS
-let g:clipboard = {
-      \ 'name': 'pbcopy',
-      \ 'copy': {
-      \    '+': 'pbcopy',
-      \    '*': 'pbcopy',
-      \  },
-      \ 'paste': {
-      \    '+': 'pbpaste',
-      \    '*': 'pbpaste',
-      \ },
-      \ 'cache_enabled': 0,
-      \ }
+if has("mac")
+  let g:clipboard = {
+        \ 'name': 'pbcopy',
+        \ 'copy': {
+        \    '+': 'pbcopy',
+        \    '*': 'pbcopy',
+        \  },
+        \ 'paste': {
+        \    '+': 'pbpaste',
+        \    '*': 'pbpaste',
+        \ },
+        \ 'cache_enabled': 0,
+        \ }
+end
 
 nnoremap <Leader>p :set nopaste<CR>
 
