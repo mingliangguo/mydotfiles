@@ -65,8 +65,6 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f '/home/linuxbrew/.linuxbrew/bin/brew' ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 [ -f ~/.myprofile ] && source ~/.myprofile
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
@@ -74,3 +72,7 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+

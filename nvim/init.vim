@@ -38,7 +38,6 @@ set tabstop=2
 set shiftwidth=0 " Always have the same value with `tabstop`
 set softtabstop=-1 " Always have the same value with `shiftwidth`
 set hidden
-" set paste
 set history=500
 set incsearch hlsearch ignorecase smartcase
 set laststatus=2
