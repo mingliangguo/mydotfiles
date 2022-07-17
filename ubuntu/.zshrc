@@ -55,7 +55,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode colorize github vagrant mvn gradle autojump node npm yarn pip python ruby rvm tmux zsh-syntax-highlighting zsh-autosuggestions ssh-agent)
+plugins=(git vi-mode colorize github vagrant mvn gradle node npm yarn pip python ruby rvm tmux zsh-syntax-highlighting zsh-autosuggestions ssh-agent)
 
 zstyle :omz:plugins:ssh-agent identities id_rsa
 
@@ -74,5 +74,5 @@ export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+eval "$(zoxide init zsh)"
 

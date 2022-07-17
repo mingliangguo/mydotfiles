@@ -8,4 +8,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/jonmosco/kube-ps1.git "${HOME}/.kube-ps1"
 
 
-git clone git://github.com/wting/autojump.git ~/.zsh/autojump && cd ~/.zsh/autojump && ./install.py
+# git clone git://github.com/wting/autojump.git ~/.zsh/autojump && cd ~/.zsh/autojump && ./install.py
