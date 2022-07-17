@@ -141,3 +141,4 @@ temp/
 #vagrant 
 .vagrant
 
+.history/

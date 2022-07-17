@@ -46,6 +46,7 @@ alias egrep='egrep --color=auto'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+alias sudo='nocorrect sudo '
 
 # Get week number
 alias week='date +%V'
@@ -232,7 +233,11 @@ minikb() {
 }
 
 pv() {
-  eval "$(pyenv init - --no-rehash)"
+  # enable pyenv
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$HOME/.cargo/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
 }
 
 conenv() {

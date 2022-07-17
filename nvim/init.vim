@@ -69,6 +69,8 @@ set noswapfile " disable swap file
 set undofile " Persistent Undo.
 set directory=~/.config/nvim/swap
 set undodir=~/.config/nvim/undo
+" stop adding new lines at the end of file
+set nofixeol
 
 " enable spell check in English
 set spelllang=en_us

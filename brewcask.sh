@@ -27,6 +27,7 @@ brew install wget --with-iri
 brew install tree
 brew install m-cli
 brew install watch
+brew install socat hexyl
 #
 # neovim
 brew install neovim/neovim/neovim
