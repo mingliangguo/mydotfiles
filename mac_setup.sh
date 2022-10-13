@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # disable notification center completely
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
-# reenable Notification Center on mac os x
-launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
-killall NotificationCenter
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+# # reenable Notification Center on mac os x
+# launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+# killall NotificationCenter
 
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -17,3 +17,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# enable key repeat for vscode
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+

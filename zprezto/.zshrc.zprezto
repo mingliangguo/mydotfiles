@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+# zmodload zsh/zprof
 #
 # set term color
 export TERM="xterm-256color"
@@ -127,5 +127,4 @@ setopt EXTENDED_HISTORY  # record command start time
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(zoxide init zsh)"
-# eval "$(starship init zsh)"
-# source /Users/mg699v/.config/broot/launcher/bash/br
+#zprof

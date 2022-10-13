@@ -38,7 +38,7 @@ export KEYTIMEOUT=1
 # cheat settings
 export CHEATCOLORS=true
 
-export PATH=/usr/local/opt/gnu-getopt/bin:$PATH:$HOME/.local/bin:$HOME/mybin
+export PATH=/opt/homebrew/bin:/usr/local/opt/gnu-getopt/bin:$PATH:$HOME/.local/bin:$HOME/mybin
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

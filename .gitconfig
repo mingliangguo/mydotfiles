@@ -194,11 +194,11 @@
 
   insteadOf = "gist:"
 [user]
-  name = mingliangguo
-  email = mail@mingliang.me
+  name = Mingliang Guo
+  email = me@mingliang.me
 
-[includeIf "gitdir:~/Work/"]
-  path = ~/work/.gitconfig
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig.work
 
 [alias]
   showtool = "!f() { git difftool $1^ $1; }; f"
