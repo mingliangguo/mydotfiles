@@ -1,0 +1,5 @@
+# Setup sublime
+
+## Sync settings
+
+- [How to setup sync settings for Sublime Text 3](https://yooluxe.medium.com/how-to-sync-your-sublime-text-settings-on-github-gist-3431aae118ae)

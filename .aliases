@@ -209,16 +209,18 @@ kv() {
   command -v kubectl > /dev/null && source <(kubectl completion zsh)
   command -v stern > /dev/null && source <(stern --completion=zsh)
 
+  BREW_HOME=$(brew --prefix)
+
   # enable kube ps1, brew install kube-ps1
-  if [ -f "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh" ]; then
-    source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+  if [ -f "${BREW_HOME}/opt/kube-ps1/share/kube-ps1.sh" ]; then
+    source "${BREW_HOME}/opt/kube-ps1/share/kube-ps1.sh"
     PS1='$(kube_ps1)'$PS1
   fi
 
-  if [ -f "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh" ]; then
-    source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
-    PS1='$(kube_ps1)'$PS1
-  fi
+  # if [ -f "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh" ]; then
+  #   source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
+  #   PS1='$(kube_ps1)'$PS1
+  # fi
 }
 
 nvmenv() {

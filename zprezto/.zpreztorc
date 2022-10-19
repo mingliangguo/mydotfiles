@@ -234,4 +234,3 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # Conda
 # To display global environments first, add the following to your '.zshrc':
 #
-   zstyle ":conda_zsh_completion:*" show-global-envs-first true
