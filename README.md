@@ -11,6 +11,23 @@ When setup a new MacOS environment. Follow the following steps:
 5. Install squirrel input:
 	- [Install and configure Squirrel](https://www.dreamxu.com/install-config-squirrel/)
 
+## Enable TouchID for sudo in MacOS
+
+- [Use TouchID to Authenticate sudo on macOS](https://it.digitaino.com/use-touchid-to-authenticate-sudo-on-macos/)
+- [Enable touchId in tmux](https://github.com/fabianishere/pam_reattach)
+
+- TLDR
+
+```bash
+# install pam-reattach for touch id in tmux
+brew install pam-reattach
+
+# add the following lines into /etc/pam.d/sudo
+auth     optional     /opt/homebrew/lib/pam/pam_reattach.so
+auth     sufficient   pam_tid.so
+```
+
+
 ## Terminal configuration
 
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
