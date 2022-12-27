@@ -13,6 +13,7 @@
 
 mkdir -p ~/.config/nvim/
 mkdir -p ~/.config/alacritty/
+mkdir -p ~/.config/wezterm/
 mkdir -p ~/.config/kitty/
 
 cwd=${PWD}
@@ -31,3 +32,4 @@ ln -fs $cwd/.aliases ~/.aliases
 ln -fs $cwd/nvim/init.vim ~/.config/nvim/
 ln -fs $cwd/alacritty.yaml ~/.config/alacritty/
 ln -fs $cwd/kitty.yaml ~/.config/alacritty/
+ln -fs $cwd/wezterm.lua ~/.config/wezterm/
