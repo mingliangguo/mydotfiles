@@ -13,3 +13,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 source /Users/mg699v/.config/broot/launcher/bash/br
+
+source /Users/garyguo/.config/broot/launcher/bash/br

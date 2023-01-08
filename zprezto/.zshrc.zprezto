@@ -1,4 +1,5 @@
-# zmodload zsh/zprof
+# set -xv
+zmodload zsh/zprof
 #
 # set term color
 export TERM="xterm-256color"
@@ -7,6 +8,7 @@ export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en.US.UTF-8"
+export EDITOR=nvim
 
 # unset nomatch otherwise rake task can not take parameters
 unsetopt nomatch
@@ -128,3 +130,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 eval "$(zoxide init zsh)"
 #zprof
+
+source /Users/garyguo/.config/broot/launcher/bash/br
