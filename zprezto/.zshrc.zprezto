@@ -129,6 +129,3 @@ setopt EXTENDED_HISTORY  # record command start time
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(zoxide init zsh)"
-#zprof
-
-source /Users/garyguo/.config/broot/launcher/bash/br

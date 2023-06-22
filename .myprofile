@@ -49,6 +49,6 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # work specific settings
 [ -f ~/.workrc ] && source  ~/.workrc
 
-export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="$HOME/.jenv/bin:$HOME/.cargo/bin:$PATH"
 eval "$(jenv init -)"
 alias ls='exa'
