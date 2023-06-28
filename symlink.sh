@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#
 [[ -s ~/.vimrc ]] && mv ~/.vimrc ~/.vimrc.original
 [[ -s ~/.gvimrc ]] && mv ~/.gvimrc ~/.gvimrc
 [[ -s ~/.bashrc ]] && mv ~/.bashrc  ~/.bashrc.original
@@ -16,7 +17,8 @@ mkdir -p ~/.config/alacritty/
 mkdir -p ~/.config/wezterm/
 mkdir -p ~/.config/kitty/
 
-cwd=${PWD}
+cwd=$(pwd)
+
 ln -fs $cwd/.vimrc ~/.vimrc
 ln -fs $cwd/.gvimrc ~/.gvimrc
 ln -fs $cwd/zprezto/.zpreztorc ~/.zpreztorc
@@ -31,5 +33,5 @@ ln -fs $cwd/.eslintrc ~/.eslintrc
 ln -fs $cwd/.aliases ~/.aliases
 ln -fs $cwd/nvim/init.vim ~/.config/nvim/
 ln -fs $cwd/alacritty.yaml ~/.config/alacritty/
-ln -fs $cwd/kitty.yaml ~/.config/alacritty/
+ln -fs $cwd/kitty.conf ~/.config/kitty/
 ln -fs $cwd/wezterm.lua ~/.config/wezterm/
