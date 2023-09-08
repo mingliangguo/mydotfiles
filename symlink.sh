@@ -11,6 +11,7 @@
 [[ -s ~/.eslintrc ]] && mv ~/.eslintrc  ~/.eslintrc.original
 [[ -s ~/.aliases ]] && mv ~/.aliases ~/.aliases.original
 [[ -s ~/.zshrc ]] && mv ~/.zshrc ~/.zshrc.original
+[[ -s ~/.phoenix.js ]] && mv ~/.phoenix.js ~/.phoenix.original
 
 mkdir -p ~/.config/nvim/
 mkdir -p ~/.config/alacritty/
@@ -35,3 +36,4 @@ ln -fs $cwd/nvim/init.vim ~/.config/nvim/
 ln -fs $cwd/alacritty.yaml ~/.config/alacritty/
 ln -fs $cwd/kitty.conf ~/.config/kitty/
 ln -fs $cwd/wezterm.lua ~/.config/wezterm/
+ln -fs $cwd/phoenix.js ~/.phoenix.js

@@ -28,6 +28,13 @@ auth     sufficient   pam_tid.so
 ```
 
 
+## Configure quake style terminal
+
+### For kitty
+
+- [Quake Applications For Mac](https://lukesmurray.com/blog/quake-applications-for-mac)
+
+
 ## Terminal configuration
 
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
