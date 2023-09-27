@@ -11,7 +11,7 @@ const topHalf = {
   left: 0,
   top: 0,
   right: 0,
-  bottom: 0.5,
+  bottom: 0.25,
 };
 
 const leftHalf = {
@@ -47,6 +47,14 @@ guakeApp({
   key: "`",
   modifiers: ["alt"],
   appName: "kitty",
+  position: topHalf,
+  followsMouse: true,
+  hideOnBlur: true,
+});
+guakeApp({
+  key: "a",
+  modifiers: ["alt"],
+  appName: "Alacritty",
   position: topHalf,
   followsMouse: true,
   hideOnBlur: true,
