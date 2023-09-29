@@ -27,6 +27,11 @@ auth     optional     /opt/homebrew/lib/pam/pam_reattach.so
 auth     sufficient   pam_tid.so
 ```
 
+## configure ssh
+
+```bash
+ssh-add --apple-use-keychain ~/.ssh/id_ed2551
+```
 
 ## Configure quake style terminal
 
