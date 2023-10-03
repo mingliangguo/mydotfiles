@@ -68,10 +68,10 @@ guakeApp({
   hideOnBlur: false,
 });
 guakeApp({
-  key: "m",
+  key: "t",
   modifiers: ["alt"],
-  appName: "Messages",
-  position: lowerLeftHalf,
+  appName: "Sublime Text",
+  position: topHalf,
   followsMouse: true,
   hideOnBlur: false,
 });
@@ -84,9 +84,9 @@ guakeApp({
   hideOnBlur: false,
 });
 guakeApp({
-  key: "r",
+  key: "l",
   modifiers: ["alt"],
-  appName: "Roam Research",
+  appName: "Logseq",
   position: rightHalf,
   followsMouse: true,
   hideOnBlur: false,
