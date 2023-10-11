@@ -39,6 +39,10 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed2551
 
 - [Quake Applications For Mac](https://lukesmurray.com/blog/quake-applications-for-mac)
 
+## Multiple versions of MacOS
+
+- [Use more than one version of macOS on a Mac](https://support.apple.com/en-us/HT208891)
+
 
 ## Terminal configuration
 

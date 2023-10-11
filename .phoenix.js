@@ -29,7 +29,7 @@ const lowerLeftHalf = {
 };
 
 const rightHalf = {
-  left: 0.5,
+  left: 0.25,
   top: 0,
   right: 0,
   bottom: 0,
@@ -63,7 +63,7 @@ guakeApp({
   key: "s",
   modifiers: ["alt"],
   appName: "Slack",
-  position: leftHalf,
+  position: rightHalf,
   followsMouse: true,
   hideOnBlur: false,
 });
