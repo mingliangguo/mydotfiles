@@ -52,6 +52,14 @@ guakeApp({
   hideOnBlur: true,
 });
 guakeApp({
+  key: "w",
+  modifiers: ["alt"],
+  appName: "wezTerm",
+  position: topHalf,
+  followsMouse: true,
+  hideOnBlur: true,
+});
+guakeApp({
   key: "a",
   modifiers: ["alt"],
   appName: "Alacritty",

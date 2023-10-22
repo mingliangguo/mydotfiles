@@ -11,6 +11,20 @@ When setup a new MacOS environment. Follow the following steps:
 5. Install squirrel input:
 	- [Install and configure Squirrel](https://www.dreamxu.com/install-config-squirrel/)
 
+
+
+## Use chezmoi for dotfiles management
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)"
+```
+
+## Use asdf for tools version management
+
+`asdf` is a similar tool like `rbenv`, `pyenv`, but in a universal way.
+
+- [asdf](https://asdf-vm.com/guide/getting-started.html)
+
 ## Enable TouchID for sudo in MacOS
 
 - [Use TouchID to Authenticate sudo on macOS](https://it.digitaino.com/use-touchid-to-authenticate-sudo-on-macos/)

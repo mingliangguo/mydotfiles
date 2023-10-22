@@ -127,6 +127,7 @@ setopt EXTENDED_HISTORY  # record command start time
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+test -e "$(brew --prefix asdf)/asdf.sh " && source $(brew --prefix asdf)/asdf.sh
 
 eval "$(zoxide init zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
