@@ -17,6 +17,8 @@ When setup a new MacOS environment. Follow the following steps:
 - [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans)
 - [Fira Code](https://github.com/tonsky/FiraCod)
 
+This [website](https://www.programmingfonts.org/) has a good collection of popular programming fonts.
+
 
 ## Use chezmoi for dotfiles management
 
