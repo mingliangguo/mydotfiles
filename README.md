@@ -11,6 +11,11 @@ When setup a new MacOS environment. Follow the following steps:
 5. Install squirrel input:
 	- [Install and configure Squirrel](https://www.dreamxu.com/install-config-squirrel/)
 
+## Fonts I love
+
+- [Twilio Sans Mono](https://github.com/twilio/twilio-sans-mono)
+- [Fantasque Sans Mono](https://github.com/belluzj/fantasque-sans)
+- [Fira Code](https://github.com/tonsky/FiraCod)
 
 
 ## Use chezmoi for dotfiles management
