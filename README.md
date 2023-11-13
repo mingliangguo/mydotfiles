@@ -65,6 +65,16 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed2551
 - [Use more than one version of macOS on a Mac](https://support.apple.com/en-us/HT208891)
 
 
+## Development related configurations
+
+### Python
+
+To configure the poetry environment, make sure the correct python version is used. For example, if a python project requires a specific python version, use the following command to configure it:
+
+```bash
+poety  env use 3.9.18
+```
+
 ## Terminal configuration
 
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)

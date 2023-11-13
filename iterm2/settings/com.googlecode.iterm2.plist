@@ -1753,6 +1753,8 @@
 				<key>Red Component</key>
 				<real>0.9686274528503418</real>
 			</dict>
+			<key>Automatically Log</key>
+			<true/>
 			<key>BM Growl</key>
 			<true/>
 			<key>Background Color</key>
@@ -2183,6 +2185,8 @@
 				<key>Red Component</key>
 				<real>0.45098039507865906</real>
 			</dict>
+			<key>Log Directory</key>
+			<string>/Users/garyguo/logs</string>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -2195,6 +2199,8 @@
 			<string>FiraCodeRoman-Regular 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
+			<key>Plain Text Logging</key>
+			<true/>
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
