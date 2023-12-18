@@ -83,4 +83,5 @@ poety  env use 3.9.18
 - [powerline-status](https://pypi.python.org/pypi/powerline-status)
 - [powerline-fonts](https://github.com/powerline/fonts)
 - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+- [differentiate git personal and work emails](https://blog.hao.dev/how-to-use-different-git-emails-for-personal-and-work-repositories-on-the-same-machine)
 
