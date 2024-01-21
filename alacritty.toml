@@ -1,0 +1,35 @@
+import = [
+    "~/.config/alacritty/themes/themes/catppuccin_macchiato.toml"
+]
+live_config_reload = true
+
+[shell]
+args = ['--login']
+program = "/bin/zsh"
+
+[cursor]
+style.shape = "Block"
+style.blinking = "Always"
+
+unfocused_hollow = true
+vi_mode_style = "Block"
+blink_interval = 800
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "Fira Code"
+
+[window]
+startup_mode = "Windowed"
+dynamic_padding = true
+opacity = 0.90
+
+[window.padding]
+x = 6
+y = 0
+
+#[window.dimensions]
+#columns = 90
+#lines = 25
